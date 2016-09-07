@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>spartyId</key>
+		<string>4</string>
+		<key>title</key>
+		<string>Dance Party! 🔥🔥</string>
+		<key>comment</key>
+		<string>My favorite band&apos;s playing at the waterway.  Time to get down!</string>
+		<key>hostId</key>
+		<string>man0</string>
+		<key>date</key>
+		<date>2016-09-07T23:00:00Z</date>
+		<key>duration</key>
+		<integer>3</integer>
+		<key>location</key>
+		<dict>
+			<key>street</key>
+			<string>403 Main Street</string>
+			<key>city</key>
+			<string>Some Town</string>
+			<key>state</key>
+			<string>TX</string>
+			<key>zip</key>
+			<string>12345</string>
+			<key>country</key>
+			<string>USA</string>
+			<key>latitude</key>
+			<real>95.29382</real>
+			<key>longitude</key>
+			<real>-127.33844</real>
+		</dict>
+		<key>photoName</key>
+		<string>waterway</string>
+	</dict>
+	<dict>
+		<key>spartyId</key>
+		<string>4</string>
+		<key>title</key>
+		<string>Bulldog Footbal Game</string>
+		<key>comment</key>
+		<string>Come cheer on the Dawgs tonight as we play Judson high.  Sitting in student section A.</string>
+		<key>hostId</key>
+		<string>girl3</string>
+		<key>date</key>
+		<date>2016-08-26T01:00:00Z</date>
+		<key>duration</key>
+		<integer>3</integer>
+		<key>location</key>
+		<dict>
+			<key>street</key>
+			<string>403 Main Street</string>
+			<key>city</key>
+			<string>Some Town</string>
+			<key>state</key>
+			<string>TX</string>
+			<key>zip</key>
+			<string>12345</string>
+			<key>country</key>
+			<string>USA</string>
+			<key>latitude</key>
+			<real>95.29382</real>
+			<key>longitude</key>
+			<real>-127.33844</real>
+		</dict>
+		<key>photoName</key>
+		<string>bulldogs</string>
+	</dict>
+	<dict>
+		<key>spartyId</key>
+		<string>0</string>
+		<key>title</key>
+		<string>Pickup Soccer Game</string>
+		<key>comment</key>
+		<string>Join me for a pickup soccer game at Bear Branch fields.  Afterwards we are going to Sonic for lunch.</string>
+		<key>hostId</key>
+		<string>girl2</string>
+		<key>date</key>
+		<date>2016-09-07T21:30:00Z</date>
+		<key>duration</key>
+		<integer>2</integer>
+		<key>location</key>
+		<dict>
+			<key>street</key>
+			<string>403 Main Street</string>
+			<key>city</key>
+			<string>Some Town</string>
+			<key>state</key>
+			<string>TX</string>
+			<key>zip</key>
+			<string>12345</string>
+			<key>country</key>
+			<string>USA</string>
+			<key>latitude</key>
+			<real>95.29382</real>
+			<key>longitude</key>
+			<real>-127.33844</real>
+		</dict>
+		<key>photoName</key>
+		<string>soccer</string>
+	</dict>
+	<dict>
+		<key>spartyId</key>
+		<string>1</string>
+		<key>title</key>
+		<string>Go See Rogue One</string>
+		<key>comment</key>
+		<string>Let&apos;s go see Star Wars Rogue One on opening night!</string>
+		<key>hostId</key>
+		<string>man3</string>
+		<key>date</key>
+		<date>2016-08-14T05:00:00Z</date>
+		<key>duration</key>
+		<integer>3</integer>
+		<key>location</key>
+		<dict>
+			<key>street</key>
+			<string>403 Main Street</string>
+			<key>city</key>
+			<string>Some Town</string>
+			<key>state</key>
+			<string>TX</string>
+			<key>zip</key>
+			<string>12345</string>
+			<key>country</key>
+			<string>USA</string>
+			<key>latitude</key>
+			<real>95.29382</real>
+			<key>longitude</key>
+			<real>-127.33844</real>
+		</dict>
+		<key>photoName</key>
+		<string>rogueOne</string>
+	</dict>
+	<dict>
+		<key>spartyId</key>
+		<string>2</string>
+		<key>title</key>
+		<string>Dinner at Chili&apos;s</string>
+		<key>comment</key>
+		<string>Meet me for dinner at Chili&apos;s on Main St.</string>
+		<key>hostId</key>
+		<string>girl5</string>
+		<key>date</key>
+		<date>2016-09-04T23:00:00Z</date>
+		<key>duration</key>
+		<integer>24</integer>
+		<key>location</key>
+		<dict>
+			<key>street</key>
+			<string>403 Main Street</string>
+			<key>city</key>
+			<string>Some Town</string>
+			<key>state</key>
+			<string>TX</string>
+			<key>zip</key>
+			<string>12345</string>
+			<key>country</key>
+			<string>USA</string>
+			<key>latitude</key>
+			<real>95.29382</real>
+			<key>longitude</key>
+			<real>-127.33844</real>
+		</dict>
+		<key>photoName</key>
+		<string>chilis</string>
+	</dict>
+</array>
+</plist>

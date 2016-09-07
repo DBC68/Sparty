@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<integer>0</integer>
+		<key>title</key>
+		<string>Friend Request Accepted</string>
+		<key>comment</key>
+		<string>You send someone a friend request and they accept it.</string>
+		<key>calculation</key>
+		<integer>0</integer>
+		<key>value</key>
+		<integer>1</integer>
+		<key>actionString</key>
+		<string>[USER] accepted your friend request.</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Friend Request Received</string>
+		<key>comment</key>
+		<string>Someone sends you a friend request.</string>
+		<key>calculation</key>
+		<integer>0</integer>
+		<key>value</key>
+		<integer>1</integer>
+		<key>actionString</key>
+		<string>[USER] sent you a friend request.</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Sparty Invite Received</string>
+		<key>comment</key>
+		<string>Someone sends you a Sparty invite.</string>
+		<key>calculation</key>
+		<integer>0</integer>
+		<key>value</key>
+		<integer>1</integer>
+		<key>actionString</key>
+		<string>[USER] invited you to: [SPARTY]</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Sparty RSPV YES</string>
+		<key>comment</key>
+		<string>Someone RSVPd yes to your Sparty</string>
+		<key>calculation</key>
+		<integer>2</integer>
+		<key>value</key>
+		<integer>0</integer>
+		<key>actionString</key>
+		<string>[USER] is GOING to: [SPARTY]</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>Sparty RSPV NO</string>
+		<key>comment</key>
+		<string>Someone RSVPd no to your Sparty</string>
+		<key>calculation</key>
+		<integer>2</integer>
+		<key>value</key>
+		<integer>0</integer>
+		<key>actionString</key>
+		<string>[USER] RSVPd NO to your Sparty: [SPARTY]</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Sparty RSPV Maybe</string>
+		<key>comment</key>
+		<string>Someone RSVPd maybe to your Sparty</string>
+		<key>calculation</key>
+		<integer>2</integer>
+		<key>value</key>
+		<integer>0</integer>
+		<key>actionString</key>
+		<string>[USER] RSVPd maybe to your Sparty: [SPARTY]</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Invite Sparty User</string>
+		<key>comment</key>
+		<string>Invite someone to use Sparty/</string>
+		<key>calculation</key>
+		<integer>0</integer>
+		<key>value</key>
+		<integer>5</integer>
+		<key>actionString</key>
+		<string>You invited [USER] to download Sparty.</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>First Time User</string>
+		<key>comment</key>
+		<string>A person you invited to Sparty started using the app.</string>
+		<key>calculation</key>
+		<integer>0</integer>
+		<key>value</key>
+		<integer>50</integer>
+		<key>actionString</key>
+		<string>[USER] started using Sparty!</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Sparty Check In</string>
+		<key>comment</key>
+		<string>Someone checks in to your Sparty.</string>
+		<key>calculation</key>
+		<integer>1</integer>
+		<key>value</key>
+		<real>0.1</real>
+		<key>actionString</key>
+		<string>[USER] checked in to: [SPARTY]</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Advertisement</string>
+		<key>comment</key>
+		<string>This is an advertisement.</string>
+		<key>calculation</key>
+		<integer>2</integer>
+		<key>value</key>
+		<integer>0</integer>
+		<key>actionString</key>
+		<string>[ADVERSITEMENT]</string>
+	</dict>
+</array>
+</plist>

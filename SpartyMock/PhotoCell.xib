@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="88" id="9Ni-7g-82A" customClass="PhotoCell" customModule="Sparty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ni-7g-82A" id="Gte-YN-tmO">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpc-OH-Eba">
+                        <rect key="frame" x="15" y="33" width="81" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PnH-EJ-U0a" customClass="RoundedImage" customModule="Sparty" customModuleProvider="target">
+                        <rect key="frame" x="242" y="15" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="dlQ-EW-vWC"/>
+                            <constraint firstAttribute="height" constant="58" id="qXJ-A8-NjK"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="bOj-dz-5MO">
+                        <rect key="frame" x="249" y="22" width="44" height="44"/>
+                        <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="TcK-D0-cw3"/>
+                            <constraint firstAttribute="height" constant="44" id="pSu-pQ-ub6"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvx-7f-TWq">
+                        <rect key="frame" x="242" y="15" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="3iQ-va-OF5"/>
+                            <constraint firstAttribute="width" constant="58" id="Or9-4L-V5K"/>
+                        </constraints>
+                        <connections>
+                            <action selector="photoAction:" destination="9Ni-7g-82A" eventType="touchUpInside" id="ahd-6P-Ice"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="PnH-EJ-U0a" secondAttribute="bottom" constant="14" id="4Sc-8p-Qfv"/>
+                    <constraint firstItem="dvx-7f-TWq" firstAttribute="centerY" secondItem="PnH-EJ-U0a" secondAttribute="centerY" id="7ZK-tk-32s"/>
+                    <constraint firstItem="PnH-EJ-U0a" firstAttribute="centerY" secondItem="Gte-YN-tmO" secondAttribute="centerY" id="Auw-qj-APT"/>
+                    <constraint firstItem="bOj-dz-5MO" firstAttribute="centerY" secondItem="PnH-EJ-U0a" secondAttribute="centerY" id="CTM-qO-qBa"/>
+                    <constraint firstItem="xpc-OH-Eba" firstAttribute="centerY" secondItem="dvx-7f-TWq" secondAttribute="centerY" id="Mjm-jp-prI"/>
+                    <constraint firstItem="bOj-dz-5MO" firstAttribute="leading" secondItem="xpc-OH-Eba" secondAttribute="trailing" constant="8" id="TQJ-dh-V2t"/>
+                    <constraint firstItem="bOj-dz-5MO" firstAttribute="centerY" secondItem="Gte-YN-tmO" secondAttribute="centerY" id="Tqg-mC-eUd"/>
+                    <constraint firstItem="bOj-dz-5MO" firstAttribute="centerX" secondItem="PnH-EJ-U0a" secondAttribute="centerX" id="Wdx-Nw-fU3"/>
+                    <constraint firstItem="PnH-EJ-U0a" firstAttribute="centerY" secondItem="Gte-YN-tmO" secondAttribute="centerY" id="ZWY-wy-OL0"/>
+                    <constraint firstItem="dvx-7f-TWq" firstAttribute="centerX" secondItem="PnH-EJ-U0a" secondAttribute="centerX" id="a0K-vQ-mNq"/>
+                    <constraint firstItem="PnH-EJ-U0a" firstAttribute="centerY" secondItem="Gte-YN-tmO" secondAttribute="centerY" id="csr-TT-hYY"/>
+                    <constraint firstItem="xpc-OH-Eba" firstAttribute="leading" secondItem="Gte-YN-tmO" secondAttribute="leading" constant="15" id="dgn-wN-Y1c"/>
+                    <constraint firstItem="dvx-7f-TWq" firstAttribute="centerY" secondItem="bOj-dz-5MO" secondAttribute="centerY" id="fHw-bH-uEb"/>
+                    <constraint firstItem="xpc-OH-Eba" firstAttribute="centerY" secondItem="Gte-YN-tmO" secondAttribute="centerY" id="kRH-9O-qDI"/>
+                    <constraint firstItem="PnH-EJ-U0a" firstAttribute="centerX" secondItem="bOj-dz-5MO" secondAttribute="centerX" id="mAg-2I-gil"/>
+                    <constraint firstItem="dvx-7f-TWq" firstAttribute="centerX" secondItem="bOj-dz-5MO" secondAttribute="centerX" id="pjm-rj-8QM"/>
+                    <constraint firstAttribute="trailing" secondItem="PnH-EJ-U0a" secondAttribute="trailing" constant="20" id="sCp-O0-4Ha"/>
+                    <constraint firstItem="PnH-EJ-U0a" firstAttribute="top" secondItem="Gte-YN-tmO" secondAttribute="top" constant="15" id="ve2-hc-dhf"/>
+                    <constraint firstAttribute="trailing" secondItem="bOj-dz-5MO" secondAttribute="trailing" constant="15" id="yRa-bG-a3t"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="kRH-9O-qDI"/>
+                        <exclude reference="4Sc-8p-Qfv"/>
+                        <exclude reference="Auw-qj-APT"/>
+                        <exclude reference="csr-TT-hYY"/>
+                        <exclude reference="mAg-2I-gil"/>
+                        <exclude reference="ve2-hc-dhf"/>
+                        <exclude reference="fHw-bH-uEb"/>
+                        <exclude reference="pjm-rj-8QM"/>
+                        <exclude reference="TQJ-dh-V2t"/>
+                        <exclude reference="Tqg-mC-eUd"/>
+                        <exclude reference="yRa-bG-a3t"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cameraView" destination="bOj-dz-5MO" id="bEu-GL-81u"/>
+                <outlet property="photoView" destination="PnH-EJ-U0a" id="f6Q-pJ-29u"/>
+            </connections>
+            <point key="canvasLocation" x="331" y="297"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="camera" width="22" height="18"/>
+    </resources>
+</document>

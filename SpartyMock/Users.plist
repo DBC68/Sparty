@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>userId</key>
+		<string>man0</string>
+		<key>first</key>
+		<string>Kate</string>
+		<key>last</key>
+		<string>Colvin</string>
+		<key>screenName</key>
+		<string>@thekate</string>
+		<key>email</key>
+		<string>kate@email.com</string>
+		<key>motto</key>
+		<string>Going for the gold!</string>
+		<key>photoName</key>
+		<string>man0</string>
+		<key>score</key>
+		<integer>450</integer>
+	</dict>
+	<dict>
+		<key>userId</key>
+		<string>girl1</string>
+		<key>first</key>
+		<string>Leah</string>
+		<key>last</key>
+		<string>Kingston</string>
+		<key>screenName</key>
+		<string>@JMT86</string>
+		<key>email</key>
+		<string>jessica@email.com</string>
+		<key>motto</key>
+		<string>Dab master.</string>
+		<key>photoName</key>
+		<string>girl1</string>
+		<key>score</key>
+		<integer>127</integer>
+	</dict>
+	<dict>
+		<key>userId</key>
+		<string>girl2</string>
+		<key>first</key>
+		<string>Audrey</string>
+		<key>last</key>
+		<string>Smith</string>
+		<key>screenName</key>
+		<string>@DJP12</string>
+		<key>email</key>
+		<string>dana@email.com</string>
+		<key>motto</key>
+		<string>Reheheeellly!</string>
+		<key>photoName</key>
+		<string>girl2</string>
+		<key>score</key>
+		<integer>111</integer>
+	</dict>
+	<dict>
+		<key>userId</key>
+		<string>girl3</string>
+		<key>first</key>
+		<string>Kelly</string>
+		<key>last</key>
+		<string>Johnson</string>
+		<key>screenName</key>
+		<string>@MMF1</string>
+		<key>email</key>
+		<string>mandy@email.com</string>
+		<key>motto</key>
+		<string>Like a glove!</string>
+		<key>photoName</key>
+		<string>girl3</string>
+		<key>score</key>
+		<integer>422</integer>
+	</dict>
+	<dict>
+		<key>userId</key>
+		<string>girl4</string>
+		<key>first</key>
+		<string>Cindy</string>
+		<key>last</key>
+		<string>Pfluger</string>
+		<key>screenName</key>
+		<string>@CFL</string>
+		<key>email</key>
+		<string>cindy@email.com</string>
+		<key>motto</key>
+		<string>Keep your head down Jessica! Mr. Fuzzy Bottoms!</string>
+		<key>photoName</key>
+		<string>girl4</string>
+		<key>score</key>
+		<integer>75</integer>
+	</dict>
+	<dict>
+		<key>userId</key>
+		<string>girl5</string>
+		<key>first</key>
+		<string>Cindy</string>
+		<key>last</key>
+		<string>Franklin</string>
+		<key>screenName</key>
+		<string>@brm</string>
+		<key>email</key>
+		<string>brenda@email.com</string>
+		<key>motto</key>
+		<string>Life&apos;s a Sparty!</string>
+		<key>photoName</key>
+		<string>girl5</string>
+		<key>score</key>
+		<integer>750</integer>
+	</dict>
+</array>
+</plist>

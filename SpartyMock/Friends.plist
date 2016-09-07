@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ownerId</key>
+		<string>man0</string>
+		<key>userId</key>
+		<string>girl1</string>
+		<key>isVIP</key>
+		<false/>
+		<key>status</key>
+		<integer>3</integer>
+		<key>ranking</key>
+		<string>Top 25%</string>
+	</dict>
+	<dict>
+		<key>ownerId</key>
+		<string>man0</string>
+		<key>userId</key>
+		<string>girl2</string>
+		<key>isVIP</key>
+		<false/>
+		<key>status</key>
+		<integer>3</integer>
+		<key>ranking</key>
+		<string>Top 25%</string>
+	</dict>
+	<dict>
+		<key>ownerId</key>
+		<string>man0</string>
+		<key>userId</key>
+		<string>girl3</string>
+		<key>isVIP</key>
+		<false/>
+		<key>status</key>
+		<integer>3</integer>
+		<key>ranking</key>
+		<string>Top 25%</string>
+	</dict>
+	<dict>
+		<key>ownerId</key>
+		<string>man0</string>
+		<key>userId</key>
+		<string>girl5</string>
+		<key>isVIP</key>
+		<false/>
+		<key>status</key>
+		<integer>2</integer>
+		<key>ranking</key>
+		<string>Top 25%</string>
+	</dict>
+	<dict>
+		<key>ownerId</key>
+		<string>man0</string>
+		<key>userId</key>
+		<string>girl4</string>
+		<key>isVIP</key>
+		<true/>
+		<key>status</key>
+		<integer>3</integer>
+		<key>ranking</key>
+		<string>Top 25%</string>
+	</dict>
+</array>
+</plist>

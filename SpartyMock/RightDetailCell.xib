@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RightDetailCell" id="9Ni-7g-82A" customClass="RightDetailCell" customModule="DynamicTableView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ni-7g-82A" id="Gte-YN-tmO">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;subtitle&gt;" textAlignment="right" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKt-Sw-hdn">
+                        <rect key="frame" x="213" y="11" width="74" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;title&gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRc-2i-SgH">
+                        <rect key="frame" x="15" y="11" width="48" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="vRc-2i-SgH" secondAttribute="bottom" constant="11" id="1t1-w4-LZe"/>
+                    <constraint firstItem="vRc-2i-SgH" firstAttribute="width" secondItem="NKt-Sw-hdn" secondAttribute="width" id="44s-Gf-d7q"/>
+                    <constraint firstAttribute="trailing" secondItem="NKt-Sw-hdn" secondAttribute="trailing" id="Am0-we-Ph7"/>
+                    <constraint firstItem="vRc-2i-SgH" firstAttribute="leading" secondItem="Gte-YN-tmO" secondAttribute="leading" constant="15" id="Igw-vK-h2J"/>
+                    <constraint firstItem="vRc-2i-SgH" firstAttribute="top" secondItem="Gte-YN-tmO" secondAttribute="top" constant="11" id="RWE-di-P1y"/>
+                    <constraint firstItem="NKt-Sw-hdn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vRc-2i-SgH" secondAttribute="trailing" constant="8" id="uNj-Ly-0BB"/>
+                    <constraint firstAttribute="bottom" secondItem="NKt-Sw-hdn" secondAttribute="bottom" constant="11" id="ufm-k1-NaZ"/>
+                    <constraint firstItem="NKt-Sw-hdn" firstAttribute="top" secondItem="Gte-YN-tmO" secondAttribute="top" constant="11" id="v8c-X5-hea"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="44s-Gf-d7q"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="subtitleLabel" destination="NKt-Sw-hdn" id="ml8-wP-xhm"/>
+                <outlet property="titleLabel" destination="vRc-2i-SgH" id="KqW-nu-sIV"/>
+            </connections>
+            <point key="canvasLocation" x="331" y="275"/>
+        </tableViewCell>
+    </objects>
+</document>

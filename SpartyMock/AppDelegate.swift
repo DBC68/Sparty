@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor(red:1, green:1, blue:1, alpha:0.9)
         
-        // Override point for customization after application launch.
+        
+        FIRApp.configure()
+        
         return true
     }
 

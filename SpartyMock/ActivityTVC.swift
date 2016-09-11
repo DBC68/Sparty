@@ -18,6 +18,8 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
     let customPresentAnimationController = CustomPresentAnimationController()
     let customDismissAnimationController = CustomDismissAnimationController()
     
+    //MARK: - View Lifecycle
+    //--------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,10 +49,21 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Is if user is not logged in, show GoogleSignInVC
+        
         if let user = FIRAuth.auth()?.currentUser {
             print("Authenticated user with uid: \(user.uid)")
-        } else {
+        }
+        //If user is not registerd, show RegisterNav
+        else if AppState.sharedInstance.isRegistered == false {
+            
+            if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
+                nav.modalTransitionStyle = .CrossDissolve
+                self.presentViewController(nav, animated: true, completion: nil)
+            }
+            
+        }
+        //If user is not logged in, show GoogleSignInVC
+        else {
             if let controller:GoogleSignInVC = UIStoryboard.loadFromStoryboard() {
                 controller.modalTransitionStyle = .CrossDissolve
                 self.presentViewController(controller, animated: true, completion: nil)

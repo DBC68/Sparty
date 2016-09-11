@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparty" translatesAutoresizingMaskIntoConstraints="NO" id="Vk4-t3-0KF">
-                                <rect key="frame" x="224" y="164" width="152" height="152"/>
+                                <rect key="frame" x="224" y="224" width="152" height="152"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="JRD-d3-f29"/>
                                     <constraint firstAttribute="height" constant="152" id="PAC-CQ-Jxs"/>
@@ -28,7 +27,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Vk4-t3-0KF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.8" id="RgS-Kq-LaF"/>
+                            <constraint firstItem="Vk4-t3-0KF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="RgS-Kq-LaF"/>
                             <constraint firstItem="Vk4-t3-0KF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ru3-jE-ee3"/>
                         </constraints>
                     </view>

@@ -12,7 +12,10 @@ import UIKit
 extension UINavigationController {
     
     func darkNavBar() {
-        
+        self.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationBar.barTintColor = UIColor.primaryColor()
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.opaque = true
     }
     
     func lightNavBar() {

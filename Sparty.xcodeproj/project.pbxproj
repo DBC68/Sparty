@@ -13,6 +13,8 @@
 		7A2BD6C21D5673BE00BC58EC /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD6C11D5673BE00BC58EC /* FriendVC.swift */; };
 		7A3746E31D82E4FB0040AEA8 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3746E21D82E4FB0040AEA8 /* UIViewController+Additions.swift */; };
 		7A4688261D8103FA00888972 /* GoogleSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4688251D8103FA00888972 /* GoogleSignInVC.swift */; };
+		7A4B261D1D84E4CD00475991 /* RegisterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B261C1D84E4CD00475991 /* RegisterTVC.swift */; };
+		7A4B261F1D84EDAE00475991 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B261E1D84EDAE00475991 /* RegisterVM.swift */; };
 		7A4C881B1D6C73EA004A757B /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C881A1D6C73EA004A757B /* Locator.swift */; };
 		7A4C881D1D6C7743004A757B /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4C881C1D6C7743004A757B /* LocationHelper.swift */; };
 		7A5ECDC81D746B6100275E64 /* NewSpartyVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5ECDC71D746B6100275E64 /* NewSpartyVM.swift */; };
@@ -56,6 +58,10 @@
 		7ABBD1A41D501A97005356F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A21D501A97005356F8 /* Main.storyboard */; };
 		7ABBD1A61D501A97005356F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A51D501A97005356F8 /* Assets.xcassets */; };
 		7ABBD1A91D501A97005356F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A71D501A97005356F8 /* LaunchScreen.storyboard */; };
+		7ABE6E0C1D85776300138BCA /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E0B1D85776300138BCA /* FirebaseManager.swift */; };
+		7ABE6E0E1D857BD400138BCA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E0D1D857BD400138BCA /* AppState.swift */; };
+		7ABE6E101D857F0100138BCA /* StartupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E0F1D857F0100138BCA /* StartupVC.swift */; };
+		7ABE6E121D857FBF00138BCA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E111D857FBF00138BCA /* TabBarController.swift */; };
 		7ACAB3081D80BB9B000E2C9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ACAB3071D80BB9B000E2C9C /* GoogleService-Info.plist */; };
 		7ACBAFB71D82DDBB00B33389 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBAFB61D82DDBB00B33389 /* SettingsTVC.swift */; };
 		7ACE52A51D817BFA006EAF9D /* NSDate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE52A41D817BFA006EAF9D /* NSDate+Additions.swift */; };
@@ -75,6 +81,8 @@
 		7A2BD6C11D5673BE00BC58EC /* FriendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
 		7A3746E21D82E4FB0040AEA8 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		7A4688251D8103FA00888972 /* GoogleSignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInVC.swift; sourceTree = "<group>"; };
+		7A4B261C1D84E4CD00475991 /* RegisterTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTVC.swift; sourceTree = "<group>"; };
+		7A4B261E1D84EDAE00475991 /* RegisterVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		7A4C881A1D6C73EA004A757B /* Locator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
 		7A4C881C1D6C7743004A757B /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		7A5ECDC71D746B6100275E64 /* NewSpartyVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSpartyVM.swift; sourceTree = "<group>"; };
@@ -120,6 +128,10 @@
 		7ABBD1A51D501A97005356F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ABBD1A81D501A97005356F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ABBD1AA1D501A97005356F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ABE6E0B1D85776300138BCA /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		7ABE6E0D1D857BD400138BCA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		7ABE6E0F1D857F0100138BCA /* StartupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupVC.swift; sourceTree = "<group>"; };
+		7ABE6E111D857FBF00138BCA /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7ACAB3071D80BB9B000E2C9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7ACBAFB61D82DDBB00B33389 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		7ACBAFB81D82DFE200B33389 /* Sparty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sparty-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -151,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				7A5ECDC71D746B6100275E64 /* NewSpartyVM.swift */,
+				7A4B261E1D84EDAE00475991 /* RegisterVM.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -222,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				7A7EC9131D5FEDB600195D2C /* DataStore.swift */,
+				7ABE6E0B1D85776300138BCA /* FirebaseManager.swift */,
+				7ABE6E0D1D857BD400138BCA /* AppState.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -237,14 +252,17 @@
 				7A7F6E4F1D67330C000897EC /* FriendRequestVC.swift */,
 				7A7F6E551D68CD91000897EC /* FriendsTVC.swift */,
 				7A2BD6C11D5673BE00BC58EC /* FriendVC.swift */,
+				7A4688251D8103FA00888972 /* GoogleSignInVC.swift */,
 				7A940AF11D57CA37004A65D3 /* InviteTVC.swift */,
 				7A6AA9ED1D6098B200DC945C /* MenuTVC.swift */,
 				7A0C26DD1D7CEFD7000FC768 /* NewSpartyTVC.swift */,
 				7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */,
+				7A4B261C1D84E4CD00475991 /* RegisterTVC.swift */,
 				7AB8C3C71D6909EA0013255F /* ScoreVC.swift */,
-				7A086E941D5679D6006A1168 /* SpartiesTVC.swift */,
-				7A4688251D8103FA00888972 /* GoogleSignInVC.swift */,
 				7ACBAFB61D82DDBB00B33389 /* SettingsTVC.swift */,
+				7A086E941D5679D6006A1168 /* SpartiesTVC.swift */,
+				7ABE6E0F1D857F0100138BCA /* StartupVC.swift */,
+				7ABE6E111D857FBF00138BCA /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -479,9 +497,11 @@
 				7AB6B4D41D52A4D0006E79A6 /* UIColor+Additions.swift in Sources */,
 				7A5ECDC81D746B6100275E64 /* NewSpartyVM.swift in Sources */,
 				7A7F6E561D68CD91000897EC /* FriendsTVC.swift in Sources */,
+				7ABE6E121D857FBF00138BCA /* TabBarController.swift in Sources */,
 				7A60597E1D5FA7380054C186 /* ActivityCell.swift in Sources */,
 				7A2BD6C21D5673BE00BC58EC /* FriendVC.swift in Sources */,
 				7A086E951D5679D6006A1168 /* SpartiesTVC.swift in Sources */,
+				7ABE6E0E1D857BD400138BCA /* AppState.swift in Sources */,
 				7ACE52A91D817F69006EAF9D /* UIStoryboard+Additions.swift in Sources */,
 				7A3746E31D82E4FB0040AEA8 /* UIViewController+Additions.swift in Sources */,
 				7A7F6E281D648553000897EC /* UITableViewController+HeaderView.swift in Sources */,
@@ -504,8 +524,11 @@
 				7A7F6E381D649096000897EC /* Location.swift in Sources */,
 				7ABBD19D1D501A97005356F8 /* AppDelegate.swift in Sources */,
 				7A4688261D8103FA00888972 /* GoogleSignInVC.swift in Sources */,
+				7A4B261F1D84EDAE00475991 /* RegisterVM.swift in Sources */,
+				7ABE6E101D857F0100138BCA /* StartupVC.swift in Sources */,
 				7A7F6E421D6492E6000897EC /* UINavigationController+Additions.swift in Sources */,
 				7A7F6E3C1D6490DF000897EC /* CLLocationCoordinate2D+Additions.swift in Sources */,
+				7A4B261D1D84E4CD00475991 /* RegisterTVC.swift in Sources */,
 				7AB8C3C61D68DEE20013255F /* Friend.swift in Sources */,
 				7AB8C3C81D6909EA0013255F /* ScoreVC.swift in Sources */,
 				7A940AF21D57CA37004A65D3 /* InviteTVC.swift in Sources */,
@@ -516,6 +539,7 @@
 				7ACE52A51D817BFA006EAF9D /* NSDate+Additions.swift in Sources */,
 				7AED75AB1D60F13A00DA505A /* MenuItem.swift in Sources */,
 				7A0C26DE1D7CEFD7000FC768 /* NewSpartyTVC.swift in Sources */,
+				7ABE6E0C1D85776300138BCA /* FirebaseManager.swift in Sources */,
 				7A6059841D5FDD080054C186 /* SpartyCell.swift in Sources */,
 				7A7F6E2B1D648561000897EC /* HeaderView.swift in Sources */,
 				7A7F6E3A1D6490C3000897EC /* String+Additions.swift in Sources */,

@@ -13,6 +13,8 @@ import GoogleSignIn
 
 class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
+    
+    
     //MARK: - Outlets
     //--------------------------------------------------------------------------
     @IBOutlet weak var signInButton: GIDSignInButton!
@@ -65,5 +67,7 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         }
 
     }
+    
+    
 
 }

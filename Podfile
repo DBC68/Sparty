@@ -8,5 +8,7 @@ target 'Sparty' do
   # Pods for Sparty
 
 pod 'Firebase'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 
 end

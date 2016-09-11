@@ -124,7 +124,7 @@ class SpartiesTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
     }
     
     @objc private func showMenu() {
-        if let nav = ControllerFactory.controller(.MenuTVC) as? UINavigationController,
+        if let nav = UIStoryboard.loadNavFromStoryboard("MenuNav"),
             controller = nav.topViewController as? MenuTVC {
             controller.delegate = self
             controller.navTitle = "Filter Sparties"

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate {
     
@@ -31,16 +32,31 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
         
         tabBarController?.tabBar.items?[2].badgeValue = "1"
         
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        
-        let notification = UILocalNotification()
-        notification.alertBody = "Kate Colvin invited you to the Sparty: Dance Party!"
-        notification.fireDate = NSDate().dateByAddingTimeInterval(10)
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//        
+//        let notification = UILocalNotification()
+//        notification.alertBody = "Kate Colvin invited you to the Sparty: Dance Party!"
+//        notification.fireDate = NSDate().dateByAddingTimeInterval(10)
+//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
         
        
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Is if user is not logged in, show GoogleSignInVC
+        if let user = FIRAuth.auth()?.currentUser {
+            print("Authenticated user with uid: \(user.uid)")
+        } else {
+            if let controller:GoogleSignInVC = UIStoryboard.loadFromStoryboard() {
+                controller.modalTransitionStyle = .CrossDissolve
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        }
+        
     }
     
     private func filterMenuButton() -> UIButton {
@@ -78,7 +94,8 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
     }
     
     @objc private func showMenu() {
-        if let nav = ControllerFactory.controller(.MenuTVC) as? UINavigationController,
+        
+        if let nav = UIStoryboard.loadNavFromStoryboard("MenuNav"),
             controller = nav.topViewController as? MenuTVC {
             controller.delegate = self
             controller.navTitle = "Filter Activities"

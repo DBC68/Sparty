@@ -6,81 +6,81 @@
 //  Copyright © 2016 Distal Industries. All rights reserved.
 //
 
-import MapKit
+//import MapKit
 
-private struct Key {
-    static let Latitude = "Latitude"
-    static let Longitude = "Longitude"
-    static let MapType = "MapType"
-    static let DistanceIdentifier = "DistanceIdentifier"
-    static let MapItem = "MapItem"
-    static let LatitudeDelta = "LatitudeDelta"
-    static let LongitudeDelta = "LongitudeDelta"
-    static let Units = "Units"
-    static let DisplayName = "DisplayName"
-    static let Email = "Email"
-    static let DisplayPassword = "DisplayPassword"
-    static let CurrentLocation = "CurrentLocation"
-    static let ViewMode = "ViewMode"
-}
+//private struct Key {
+//    static let Latitude = "Latitude"
+//    static let Longitude = "Longitude"
+//    static let MapType = "MapType"
+//    static let DistanceIdentifier = "DistanceIdentifier"
+//    static let MapItem = "MapItem"
+//    static let LatitudeDelta = "LatitudeDelta"
+//    static let LongitudeDelta = "LongitudeDelta"
+//    static let Units = "Units"
+//    static let DisplayName = "DisplayName"
+//    static let Email = "Email"
+//    static let DisplayPassword = "DisplayPassword"
+//    static let CurrentLocation = "CurrentLocation"
+//    static let ViewMode = "ViewMode"
+//}
 
 import Foundation
 
 extension NSUserDefaults {
     
-    class func email() -> String? {
-        return loadStringForKey(Key.Email)
-    }
-    
-    class func setEmail(email: String) {
-        saveString(email, forKey: Key.Email)
-    }
-    
-    class func displayName() -> String? {
-        return loadStringForKey(Key.DisplayName)
-    }
-    
-    class func setDisplayName(displayName: String) {
-        saveString(displayName, forKey: Key.DisplayName)
-    }
-    
-    class func mapType() -> MKMapType {
-        
-        if let type = loadIntegerForKey(Key.MapType) {
-            return MKMapType(rawValue: UInt(type))!
-        }
-        else {return .Standard}
-        
-    }
-    
-    class func setMapType(mapType: MKMapType) {
-        saveInteger(Int(mapType.rawValue), forKey: Key.MapType)
-    }
-    
-    class func longitudeDelta() -> Double? {
-        return loadDoubleForKey(Key.LongitudeDelta)
-    }
-    
-    class func setLongitudeDelta(longitudeDelta: Double) {
-        saveDouble(longitudeDelta, forKey: Key.LongitudeDelta)
-    }
-    
-    class func latitudeDelta() -> Double? {
-        return loadDoubleForKey(Key.LatitudeDelta)
-    }
-    
-    class func setLatitudeDelta(latitudeDelta: Double) {
-        saveDouble(latitudeDelta, forKey: Key.LatitudeDelta)
-    }
-    
-    class func units() -> Units? {
-        guard let units = loadIntegerForKey(Key.Units) else {return nil}
-        return Units(rawValue:units)
-    }
-    
-    class func setUnits(units: Units) {
-        saveInteger(units.rawValue, forKey: Key.Units)
-    }
+//    class func email() -> String? {
+//        return loadStringForKey(Key.Email)
+//    }
+//    
+//    class func setEmail(email: String) {
+//        saveString(email, forKey: Key.Email)
+//    }
+//    
+//    class func displayName() -> String? {
+//        return loadStringForKey(Key.DisplayName)
+//    }
+//    
+//    class func setDisplayName(displayName: String) {
+//        saveString(displayName, forKey: Key.DisplayName)
+//    }
+//    
+//    class func mapType() -> MKMapType {
+//        
+//        if let type = loadIntegerForKey(Key.MapType) {
+//            return MKMapType(rawValue: UInt(type))!
+//        }
+//        else {return .Standard}
+//        
+//    }
+//    
+//    class func setMapType(mapType: MKMapType) {
+//        saveInteger(Int(mapType.rawValue), forKey: Key.MapType)
+//    }
+//    
+//    class func longitudeDelta() -> Double? {
+//        return loadDoubleForKey(Key.LongitudeDelta)
+//    }
+//    
+//    class func setLongitudeDelta(longitudeDelta: Double) {
+//        saveDouble(longitudeDelta, forKey: Key.LongitudeDelta)
+//    }
+//    
+//    class func latitudeDelta() -> Double? {
+//        return loadDoubleForKey(Key.LatitudeDelta)
+//    }
+//    
+//    class func setLatitudeDelta(latitudeDelta: Double) {
+//        saveDouble(latitudeDelta, forKey: Key.LatitudeDelta)
+//    }
+//    
+//    class func units() -> Units? {
+//        guard let units = loadIntegerForKey(Key.Units) else {return nil}
+//        return Units(rawValue:units)
+//    }
+//    
+//    class func setUnits(units: Units) {
+//        saveInteger(units.rawValue, forKey: Key.Units)
+//    }
     
     
 //    class func defaultCoordinates() -> CLLocationCoordinate2D? {
@@ -106,7 +106,7 @@ extension NSUserDefaults {
     
     //MARK: Shared
     //--------------------------------------------------------------------------
-    private class func saveString(string: String, forKey key: String) {
+    class func saveString(string: String, forKey key: String) {
         if string.isEmpty {
             NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
         } else {
@@ -114,34 +114,34 @@ extension NSUserDefaults {
         }
     }
     
-    private class func loadStringForKey(key: String) -> String? {
+    class func loadStringForKey(key: String) -> String? {
         return NSUserDefaults.standardUserDefaults().stringForKey(key)
     }
     
-    private class func saveInteger(integer: Int, forKey key: String) {
+    class func saveInteger(integer: Int, forKey key: String) {
         NSUserDefaults.standardUserDefaults().setInteger(integer, forKey: key)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    private class func loadIntegerForKey(key: String) -> Int? {
+    class func loadIntegerForKey(key: String) -> Int? {
         return NSUserDefaults.standardUserDefaults().integerForKey(key)
     }
     
-    private class func saveDouble(number: Double, forKey key: String) {
+    class func saveDouble(number: Double, forKey key: String) {
         NSUserDefaults.standardUserDefaults().setDouble(number, forKey: key)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    private class func loadDoubleForKey(key: String) -> Double? {
+    class func loadDoubleForKey(key: String) -> Double? {
         return NSUserDefaults.standardUserDefaults().doubleForKey(key)
     }
     
-    private class func saveBool(value: Bool, forKey key: String) {
+    class func saveBool(value: Bool, forKey key: String) {
         NSUserDefaults.standardUserDefaults().setBool(value, forKey: key)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    private class func loadBoolForKey(key: String) -> Bool? {
+    class func loadBoolForKey(key: String) -> Bool? {
         return NSUserDefaults.standardUserDefaults().boolForKey(key)
     }
 }

@@ -18,6 +18,7 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     //MARK: - Outlets
     //--------------------------------------------------------------------------
     @IBOutlet weak var signInButton: GIDSignInButton!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
 
     //MARK: - View Lifecycle
     //--------------------------------------------------------------------------
@@ -28,18 +29,22 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        setup()
+        self.signInButton.colorScheme = .Dark
+        
+        self.signInButton.hidden = false
+        self.indicator.stopAnimating()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.signInButton.hidden = true
+        self.indicator.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: - Setup
-    //--------------------------------------------------------------------------
-    private func setup() {
-        self.signInButton.colorScheme = .Dark
     }
     
     //MARK - Google
@@ -62,7 +67,15 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             }
             
             dispatch_async(dispatch_get_main_queue(),{
-                self.dismissViewControllerAnimated(true, completion: nil)
+                
+                if AppState.isRegistered == false {
+                    if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
+                        nav.modalTransitionStyle = .CrossDissolve
+                        self.presentViewController(nav, animated: true, completion: nil)
+                    }
+                } else {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
             })
         }
 

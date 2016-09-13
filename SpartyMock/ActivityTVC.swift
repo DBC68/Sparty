@@ -46,32 +46,6 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        if let user = FIRAuth.auth()?.currentUser {
-            print("Authenticated user with uid: \(user.uid)")
-        }
-        //If user is not registerd, show RegisterNav
-        else if AppState.sharedInstance.isRegistered == false {
-            
-            if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
-                nav.modalTransitionStyle = .CrossDissolve
-                self.presentViewController(nav, animated: true, completion: nil)
-            }
-            
-        }
-        //If user is not logged in, show GoogleSignInVC
-        else {
-            if let controller:GoogleSignInVC = UIStoryboard.loadFromStoryboard() {
-                controller.modalTransitionStyle = .CrossDissolve
-                self.presentViewController(controller, animated: true, completion: nil)
-            }
-        }
-        
-    }
-    
     private func filterMenuButton() -> UIButton {
         
         let titleLabel = UILabel()

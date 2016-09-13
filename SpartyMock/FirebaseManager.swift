@@ -11,26 +11,49 @@ import Firebase
 
 class FirbaseManager: NSObject {
     
-    struct Key {
+    struct Node {
         static let Users = "users"
-        static let Username = "Username"
     }
     
-    //MARK: - Properties
-    //--------------------------------------------------------------------------
-    var ref = FIRDatabase.database().reference()
+    struct Key {
+        static let ScreenName = "screenName"
+    }
     
-    private func loadUser() {
+
+    static func ref() -> FIRDatabaseReference {
+        return FIRDatabase.database().reference()
+    }
+    
+    
+    static func isUniqueScreenName(userName:String, completion: (result:Bool) -> Void) {
         
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child(Key.Users).child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            // Get user value
-            let username = snapshot.value![Key.Username] as! String
-//            let user = User.init(username: username)
+        ref().child(Node.Users).child(userName).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            completion(result: snapshot == nil)
             
             // ...
         }) { (error) in
             print(error.localizedDescription)
         }
     }
+    
+    static func saveUserInfo(dict: [String:AnyObject]) {
+        let user = FIRAuth.auth()?.currentUser
+        ref().child(Node.Users).child(user!.uid).setValue(dict)
+    }
+    
+//    private func loadUser() {
+//        
+//        let userID = FIRAuth.auth()?.currentUser?.uid
+//        ref.child(Key.Users).child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//            // Get user value
+//            let username = snapshot.value![Key.Username] as! String
+////            let user = User.init(username: username)
+//            
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+//    }
+
 }

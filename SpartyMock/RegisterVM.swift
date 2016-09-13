@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class RegisterVM: NSObject {
     
@@ -18,9 +19,27 @@ class RegisterVM: NSObject {
     //--------------------------------------------------------------------------
     var controller: RegisterTVC!
     
-    var screenName: String?
+    let ref = FIRDatabase.database().reference()
+    
+    var screenName: String!
     var motto: String?
     var photo: UIImage?
+    
+    func dict() -> [String:AnyObject] {
+        
+        var dict = ["screenName":self.screenName]
+        
+        if let motto = self.motto {
+            dict["motto"] = motto
+        }
+        
+        if let image = self.photo,
+            imageData = UIImagePNGRepresentation(image) {
+            dict["photo"] = imageData.base64EncodedStringWithOptions([])
+        }
+        
+        return dict
+    }
     
     //MARK: - Validation
     //--------------------------------------------------------------------------
@@ -49,9 +68,5 @@ class RegisterVM: NSObject {
     init(controller:RegisterTVC) {
         super.init()
         self.controller = controller
-    }
-    
-    func saveUserInfo() {
-        //TODO: Save to server
     }
 }

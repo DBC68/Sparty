@@ -45,6 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            print("Authenticated user with uid: \(user.uid)")
+            
+        } else {
+            //If not authenticated, show login screen
+            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.ShowLogin, object: nil)
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {

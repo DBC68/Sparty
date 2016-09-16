@@ -10,5 +10,6 @@ import Foundation
 
 class Notifications {
     
-    static let ShowLogin = "NotificationShowLogin"
+    static let ShowLogin = "ShowLoginNotification"
+    static let ShowRegistration = "ShowRegistrationNotification"
 }

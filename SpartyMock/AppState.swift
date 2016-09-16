@@ -21,83 +21,70 @@ class AppState: NSObject {
     
     //MARK:  - Properties
     //--------------------------------------------------------------------------
-
-    static var isRegistered: Bool? {
-        set {
-            if isRegistered != nil {
-                NSUserDefaults.saveBool(isRegistered!, forKey: Key.IsRegistered)
-            }
-        }
-        get {
-            if let isRegistered = NSUserDefaults.loadBoolForKey(Key.IsRegistered) {
-                return isRegistered
-            } else {
-                return false
-            }
-        }
-    }
     
-    static var screenName: String? {
-        set {
-            if screenName != nil {
-                NSUserDefaults.saveString(screenName!, forKey: Key.ScreenName)
-            }
-        }
-        get {
-            if let screenName = NSUserDefaults.loadStringForKey(Key.ScreenName) {
-                return screenName
-            } else {
-                return nil
-            }
-        }
-    }
-    
-    static var motto: String? {
-        set {
-            if motto != nil {
-                NSUserDefaults.saveString(motto!, forKey: Key.Motto)
-            }
-        }
-        get {
-            if let motto = NSUserDefaults.loadStringForKey(Key.Motto) {
-                return motto
-            } else {
-                return nil
-            }
-        }
-    }
-    
-    static var units: Units? {
-        set {
-            if units != nil {
-                NSUserDefaults.saveInteger(units!.rawValue, forKey: Key.Units)
-            }
-        }
-        get {
-            if let units = NSUserDefaults.loadIntegerForKey(Key.Units) {
-                return Units(rawValue: units)
-            } else {
-                return .Imperial
-            }
-        }
-    }
- 
-    static var photo: UIImage? {
-        set {
-            if photo != nil {
-                let imagePath = fileInDocumentsDirectory(Key.Photo)
-                saveImage(photo!, path: imagePath)
-            }
-        }
-        get {
-            let imagePath = fileInDocumentsDirectory(Key.Photo)
-            if let loadedImage = loadImageFromPath(imagePath) {
-                return loadedImage
-            } else {
-                return nil
-            }
-        }
-    }
+//    static var isRegistered = false
+//    
+//    static var screenName: String? {
+//        set {
+//            if screenName != nil {
+//                NSUserDefaults.saveString(screenName!, forKey: Key.ScreenName)
+//            }
+//        }
+//        get {
+//            if let screenName = NSUserDefaults.loadStringForKey(Key.ScreenName) {
+//                return screenName
+//            } else {
+//                return nil
+//            }
+//        }
+//    }
+//    
+//    static var motto: String? {
+//        set {
+//            if motto != nil {
+//                NSUserDefaults.saveString(motto!, forKey: Key.Motto)
+//            }
+//        }
+//        get {
+//            if let motto = NSUserDefaults.loadStringForKey(Key.Motto) {
+//                return motto
+//            } else {
+//                return nil
+//            }
+//        }
+//    }
+//    
+//    static var units: Units? {
+//        set {
+//            if units != nil {
+//                NSUserDefaults.saveInteger(units!.rawValue, forKey: Key.Units)
+//            }
+//        }
+//        get {
+//            if let units = NSUserDefaults.loadIntegerForKey(Key.Units) {
+//                return Units(rawValue: units)
+//            } else {
+//                return .Imperial
+//            }
+//        }
+//    }
+// 
+//    static var photo: UIImage? {
+//        set {
+//            if photo != nil {
+//                let imagePath = fileInDocumentsDirectory(Key.Photo)
+//                saveImage(photo!, path: imagePath)
+//            }
+//        }
+//        get {
+//            let imagePath = fileInDocumentsDirectory(Key.Photo)
+//            if let loadedImage = loadImageFromPath(imagePath) {
+//                return loadedImage
+//            } else {
+//                return nil
+//            }
+//        }
+//    }
     
     //MARK: - Save File
     //--------------------------------------------------------------------------

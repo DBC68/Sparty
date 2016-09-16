@@ -66,17 +66,24 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
                 return
             }
             
-            dispatch_async(dispatch_get_main_queue(),{
+            FirbaseManager.isRegistered(user!.uid, completion: { (result) in
                 
-                if AppState.isRegistered == false {
-                    if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
-                        nav.modalTransitionStyle = .CrossDissolve
-                        self.presentViewController(nav, animated: true, completion: nil)
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    //If is registered, dismiss login else show register screen
+                    if result == true {
+                        NSUserDefaults.setIsRegistered(true)
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    } else {
+                        if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
+                            nav.modalTransitionStyle = .CrossDissolve
+                            self.presentViewController(nav, animated: true, completion: nil)
+                        }
                     }
-                } else {
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
+                })
             })
+            
+            
         }
 
     }

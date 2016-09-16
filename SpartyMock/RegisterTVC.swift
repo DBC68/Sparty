@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RegisterTVC: UITableViewController {
+class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PhotoViewerDelegate {
     
     //MARK: - Properties
     //--------------------------------------------------------------------------
@@ -21,15 +21,23 @@ class RegisterTVC: UITableViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var mottoField: UITextField!
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var cameraView: UIImageView!
     
     //MARK: - View Lifecycle
     //--------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.lightNavBar()
-        self.screenNameField.becomeFirstResponder()
-        self.vm = RegisterVM(controller: self)
+        navigationController?.lightNavBar()
+        screenNameField.becomeFirstResponder()
+        vm = RegisterVM(controller: self)
+        doneButton.enabled = false
+        
+        cameraView.tintColor = UIColor.lightGrayColor()
+        photoView.layer.cornerRadius = photoView.frame.size.width / 2
+        photoView.layer.borderColor = UIColor.imageBorderColor().CGColor
+        photoView.layer.borderWidth = Constants.ImageBorderWidth
+        removePhoto()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,20 +47,21 @@ class RegisterTVC: UITableViewController {
 
     //MARK - Actions
     //--------------------------------------------------------------------------
+    @IBAction func textChanged(sender: UITextField) {
+        doneButton.enabled = vm.isValid
+    }
     @IBAction func doneAction(sender: AnyObject) {
         
-        self.view.endEditing(true)
+        view.endEditing(true)
+
+        vm.photo = photoView.image
         
-        self.vm.screenName = self.screenNameField.text?.trim()
-        self.vm.motto = self.mottoField.text?.trim()
-        self.vm.photo = self.photoView.image
-        
-        guard self.vm.isValid() == true else {
-            self.showHeaderView("Invalid Entry")
+        guard vm.isValid == true else {
+            showHeaderView("Invalid Entry")
             return
         }
         
-        FirbaseManager.isUniqueScreenName(self.vm.screenName) {
+        FirbaseManager.isUniqueScreenName(vm.username) {
             
             result in
             
@@ -60,13 +69,15 @@ class RegisterTVC: UITableViewController {
                 
                 if result == true {
                     
+                    FirbaseManager.saveUsername(self.vm.username)
+                    
                     FirbaseManager.saveUserInfo(self.vm.dict())
                     
-                    AppState.isRegistered = true
+                    NSUserDefaults.setIsRegistered(true)
                     
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
-                    self.showMessagePrompt("The screenName \(self.vm.screenName) is already taken.  Please try again.")
+                    self.showMessagePrompt("The screenName \(self.vm.username) is already taken.  Please try again.")
                 }
             })
         }
@@ -74,12 +85,18 @@ class RegisterTVC: UITableViewController {
    
     @IBAction func addPhotoAction(sender: AnyObject) {
         
-        self.view.endEditing(true)
+        view.endEditing(true)
+        
+        if vm.photo != nil {
+            showImage()
+        } else {
+            showImagePicker()
+        }
     }
     
     @IBAction func cancelAction(sender: AnyObject) {
         
-        self.view.endEditing(true)
+        view.endEditing(true)
         
         let alertController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -94,7 +111,78 @@ class RegisterTVC: UITableViewController {
         }))
         
         alertController.addAction(UIAlertAction(title: "No", style: .Cancel, handler:nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    //MARK: - Photo
+    //--------------------------------------------------------------------------
+    func showImagePicker() {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func showImage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let photoVC = storyboard.instantiateViewControllerWithIdentifier("PhotoVC") as! PhotoVC
+        photoVC.photo = vm.photo
+        photoVC.delegate = self
+        presentViewController(photoVC, animated: true, completion: nil)
+    }
+    
+    func replacePhoto() {
+        showImagePicker()
+    }
+    
+    func deletePhoto() {
+        removePhoto()
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            vm.photo = image
+            showPhoto(image)
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func showPhoto(image: UIImage) {
+        photoView.image = image
+        photoView.hidden = false
+        cameraView.hidden = true
+        vm.photo = image
+    }
+    
+    func removePhoto() {
+        photoView.image = nil
+        photoView.hidden = true
+        cameraView.hidden = false
+    }
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
+    //MARK: - Text Field Delegate
+    //--------------------------------------------------------------------------
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == screenNameField {
+            //Check to see if unique
+            if vm.isValidUsername {
+                FirbaseManager.isUniqueScreenName(vm.username, completion: { (result) in
+                    self.vm.isUniqueScreenName = result
+                    print(self.vm.username + " is unique: \(result)")
+                })
+            }
+        }
     }
     
 }

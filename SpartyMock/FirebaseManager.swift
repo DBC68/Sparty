@@ -13,47 +13,48 @@ class FirbaseManager: NSObject {
     
     struct Node {
         static let Users = "users"
+        static let Usernames = "usernames"
     }
     
     struct Key {
-        static let ScreenName = "screenName"
+        static let Username = "username"
     }
     
 
-    static func ref() -> FIRDatabaseReference {
-        return FIRDatabase.database().reference()
+    static var ref = FIRDatabase.database().reference()
+    
+    static var user = FIRAuth.auth()?.currentUser
+    
+    
+    //Username
+    //--------------------------------------------------------------------------
+    static func saveUsername(userName:String) {
+        let path = ref.child(Node.Usernames).child(userName)
+        path.setValue(user!.uid)
     }
     
-    
-    static func isUniqueScreenName(userName:String, completion: (result:Bool) -> Void) {
-        
-        ref().child(Node.Users).child(userName).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            
-            completion(result: snapshot == nil)
-            
-            // ...
+    static func isUniqueScreenName(username:String, completion: (result:Bool) -> Void) {
+        let path = ref.child(Node.Usernames).child(username)
+        path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            completion(result: snapshot.exists() == false)
         }) { (error) in
             print(error.localizedDescription)
         }
     }
     
+    //User
+    //--------------------------------------------------------------------------
     static func saveUserInfo(dict: [String:AnyObject]) {
-        let user = FIRAuth.auth()?.currentUser
-        ref().child(Node.Users).child(user!.uid).setValue(dict)
+        let path = ref.child(Node.Users).child(user!.uid)
+        path.setValue(dict)
     }
     
-//    private func loadUser() {
-//        
-//        let userID = FIRAuth.auth()?.currentUser?.uid
-//        ref.child(Key.Users).child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//            // Get user value
-//            let username = snapshot.value![Key.Username] as! String
-////            let user = User.init(username: username)
-//            
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-//    }
-
+    static func isRegistered(uid:String, completion: (result:Bool) -> Void) {
+        let path = ref.child(Node.Users).child(uid)
+        path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            completion(result: snapshot.exists())
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
 }

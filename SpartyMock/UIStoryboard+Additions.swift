@@ -10,6 +10,8 @@ import UIKit
 
 extension UIStoryboard {
     
+//    static let RegisterNavID = "RegisterNav"
+    
     static func loadFromStoryboard<T>(hasNav:Bool = false) -> T? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let id = String(T.self)

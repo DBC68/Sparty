@@ -35,26 +35,30 @@ class SettingsTVC: UITableViewController {
         let alertController = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .Default, handler: { action in
-            do {
-                try! FIRAuth.auth()!.signOut()
-                
-                GIDSignIn.sharedInstance().signOut()
-                
-                if let controller:GoogleSignInVC = UIStoryboard.loadFromStoryboard() {
-                    controller.modalTransitionStyle = .CrossDissolve
-                    self.presentViewController(controller, animated: true) {
-                        
-                        //Go to first tab after logging out
-                        dispatch_async(dispatch_get_main_queue(),{
-                            if let tabBarController = self.tabBarController {
-                                tabBarController.selectedIndex = 0
-                            }
-                        })
-
-
-                    }
-                }
-            }
+            
+            try! FIRAuth.auth()!.signOut()
+            
+            GIDSignIn.sharedInstance().signOut()
+            
+            NSUserDefaults.setIsRegistered(false)
+            
+//            if let controller:GoogleSignInVC = UIStoryboard.loadFromStoryboard() {
+//                controller.modalTransitionStyle = .CrossDissolve
+//                self.presentViewController(controller, animated: true) {
+            
+                    //Go to first tab after logging out
+                    dispatch_async(dispatch_get_main_queue(),{
+                        if let tabBarController = self.tabBarController {
+                            tabBarController.selectedIndex = 0
+                        }
+                    })
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.ShowLogin, object: nil)
+                    
+                    
+//                }
+//            }
+            
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler:nil))

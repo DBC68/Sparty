@@ -11,23 +11,26 @@ import Firebase
 
 class RegisterVM: NSObject {
     
-    /* See here:
- http://grokbase.com/t/gg/firebase-talk/165nfjzyjy/firebase-ios-swift-most-efficient-way-to-save-a-unique-username-value-to-new-user-at-registration
- */
-    
     //MARK: - Properties
     //--------------------------------------------------------------------------
     var controller: RegisterTVC!
     
     let ref = FIRDatabase.database().reference()
     
-    var screenName: String!
-    var motto: String?
+    var username: String! {
+        return self.controller.screenNameField.text?.trim()
+    }
+    var isUniqueScreenName: Bool = false
+    
+    var motto: String? {
+        return self.controller.mottoField.text?.trim()
+    }
+
     var photo: UIImage?
     
     func dict() -> [String:AnyObject] {
         
-        var dict = ["screenName":self.screenName]
+        var dict = ["username":self.username]
         
         if let motto = self.motto {
             dict["motto"] = motto
@@ -43,24 +46,21 @@ class RegisterVM: NSObject {
     
     //MARK: - Validation
     //--------------------------------------------------------------------------
-    func isValid() -> Bool {
-        return isValidScreenName() && isValidMotto() && isValiPhoto()
+    var isValid: Bool {
+        return isValidUsername && isValidMotto && isValidPhoto && isUniqueScreenName
     }
     
-    func isValidScreenName() -> Bool {
-         return !(self.screenName ?? "").isEmpty
+    var isValidUsername: Bool {
+         return !(self.username ?? "").isEmpty
     }
     
-    func isUniqueScreenName(completion:Bool) {
-        //TODO: Check server
-    }
-    
-    func isValidMotto() -> Bool {
+    var isValidMotto: Bool {
         return !(self.motto ?? "").isEmpty
     }
     
-    func isValiPhoto() -> Bool {
-        return self.photo != nil
+    var isValidPhoto: Bool {
+        return true
+//        return self.photo != nil
     }
     
     //MARK: - Initializers

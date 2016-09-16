@@ -20,5 +20,12 @@ class TabBarController: UITabBarController {
             }
         }
         
+        NSNotificationCenter.defaultCenter().addObserverForName(Notifications.ShowRegistration, object: nil, queue: nil) { (notification) in
+            if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
+                nav.modalTransitionStyle = .CrossDissolve
+                self.presentViewController(nav, animated: true, completion: nil)
+            }
+        }
+        
     }
 }

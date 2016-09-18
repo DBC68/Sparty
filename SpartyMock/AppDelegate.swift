@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        DataStore.sharedInstance.loadMockData()
+//        DataStore.sharedInstance.loadMockData()
         
         setupGlobalAppearance()
 

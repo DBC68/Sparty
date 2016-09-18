@@ -64,7 +64,7 @@ class Activity: NSObject {
         case .Points:
             return String(Int(action.value)) + " points"
         case .Percent:
-            return String(Int((user?.score)! * action.value)) + " points"
+            return String(Double((user?.score)!) * action.value) + " points"
         case .None:
             return ""
         }

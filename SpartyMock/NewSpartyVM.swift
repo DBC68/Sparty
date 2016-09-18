@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewSpartyVM: NSObject {
+class NewSpartyVM {
     
     //MARK: - Properties
     //--------------------------------------------------------------------------
@@ -32,7 +32,6 @@ class NewSpartyVM: NSObject {
     //MARK: - Initializers
     //--------------------------------------------------------------------------
     init(sparty:Sparty?, controller:NewSpartyTVC) {
-        super.init()
         self.sparty = sparty
         self.controller = controller
         self.controller.photoView.image = DataStore.sharedInstance.user.photo

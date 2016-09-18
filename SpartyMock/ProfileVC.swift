@@ -1,5 +1,5 @@
 //
-//  ScoreVC.swift
+//  ProfileVC.swift
 //  SpartyMock
 //
 //  Created by David Colvin on 8/20/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScoreVC: UIViewController {
+class ProfileVC: UIViewController {
     
     @IBOutlet weak var creditLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -18,20 +18,12 @@ class ScoreVC: UIViewController {
     @IBOutlet weak var photoView: RoundedImage!
     @IBOutlet weak var mottoLabel: UILabel!
     
-    
+    var vm: ProfileVM!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let user = DataStore.sharedInstance.userForUserId("man0")
-
-//        self.creditLabel.text = "\(user!.credits)"
-//        self.scoreLabel.text = "\(user!.score)"
-//        self.rankingLabel.text = user!.rankString
-        self.nameLabel.text = user?.fullName
-        self.screenNameLabel.text = user?.screenName
-        self.photoView.image = user?.photo
-        self.mottoLabel.text = user?.motto
+        self.vm = ProfileVM(controller: self)
     }
 
     override func didReceiveMemoryWarning() {

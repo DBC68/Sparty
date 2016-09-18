@@ -66,7 +66,7 @@ class DataStore {
             for dict in array {
                 
                 let user = User(dict: dict)
-                self.users.append(user)
+                self.users.append(user!)
             }
         } else {
             abort()
@@ -76,7 +76,7 @@ class DataStore {
     
     func userForUserId(userId: String) -> User? {
         for user in self.users {
-            if user.userId == userId {
+            if user.uid == userId {
                 return user
             }
         }

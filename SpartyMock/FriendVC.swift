@@ -41,7 +41,7 @@ class FriendVC: UIViewController {
         self.rankingLabel.text = "\(self.friend.ranking)"
         self.creditsLabel.text = "\(Int(user.credits)) credits"
         self.nameLabel.text = user.fullName
-        self.screenNameLabel.text = user.screenName
+        self.screenNameLabel.text = user.displayName
         self.mottoLabel.text = user.motto
         
         if self.friend.status == .Invite {

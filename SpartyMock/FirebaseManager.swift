@@ -57,4 +57,24 @@ class FirbaseManager: NSObject {
             print(error.localizedDescription)
         }
     }
+    
+    static func observeUser(uid:String, completion: (result:User?) -> Void) {
+        let path = ref.child(Node.Users).child(uid)
+        path.observeEventType(.Value, withBlock: { (snapshot) in
+            
+            guard snapshot.exists() else {
+                completion(result: nil)
+                return
+            }
+            
+            if let dict = snapshot.value as? [String:AnyObject],
+                let user = User(dict: dict) {
+                completion(result: user)
+            }
+            
+        }) { (error) in
+            completion(result: nil)
+            print(error.localizedDescription)
+        }
+    }
 }

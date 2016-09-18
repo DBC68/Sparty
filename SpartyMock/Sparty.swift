@@ -35,7 +35,7 @@ class Sparty: NSObject {
     }
     
     var isMySparty: Bool {
-        return hostId == DataStore.sharedInstance.user.userId
+        return hostId == DataStore.sharedInstance.user.uid
     }
     
     var isPending: Bool {
@@ -82,7 +82,7 @@ class Sparty: NSObject {
         sparty.date = dict[FormKey.Date] as? NSDate
         sparty.duration = dict[FormKey.Duration] as? Double
         sparty.location = dict[FormKey.Location] as? Location
-        sparty.hostId = DataStore.sharedInstance.user.userId
+        sparty.hostId = DataStore.sharedInstance.user.uid
         sparty.spartyId = NSUUID().UUIDString
         sparty.photo = dict[FormKey.Photo] as? UIImage
         

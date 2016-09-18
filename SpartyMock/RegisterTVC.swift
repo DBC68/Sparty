@@ -45,7 +45,7 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
         // Dispose of any resources that can be recreated.
     }
 
-    //MARK - Actions
+    //MARK: - Actions
     //--------------------------------------------------------------------------
     @IBAction func textChanged(sender: UITextField) {
         doneButton.enabled = vm.isValid
@@ -69,9 +69,11 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
                 
                 if result == true {
                     
-                    FirbaseManager.saveUsername(self.vm.username)
+                    let user = self.vm.createUser()
                     
-                    FirbaseManager.saveUserInfo(self.vm.dict())
+                    FirbaseManager.saveUsername(user.displayName)
+                    
+                    FirbaseManager.saveUserInfo(user.dict())
                     
                     NSUserDefaults.setIsRegistered(true)
                     

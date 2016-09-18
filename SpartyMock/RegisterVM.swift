@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class RegisterVM: NSObject {
+class RegisterVM {
     
     //MARK: - Properties
     //--------------------------------------------------------------------------
@@ -28,20 +28,13 @@ class RegisterVM: NSObject {
 
     var photo: UIImage?
     
-    func dict() -> [String:AnyObject] {
-        
-        var dict = ["username":self.username]
-        
-        if let motto = self.motto {
-            dict["motto"] = motto
-        }
-        
-        if let image = self.photo,
-            imageData = UIImagePNGRepresentation(image) {
-            dict["photo"] = imageData.base64EncodedStringWithOptions([])
-        }
-        
-        return dict
+    
+    func createUser() -> User {
+        let user = User()
+        user.displayName = username
+        user.motto = motto
+        user.photo = photo
+        return user
     }
     
     //MARK: - Validation
@@ -66,7 +59,6 @@ class RegisterVM: NSObject {
     //MARK: - Initializers
     //--------------------------------------------------------------------------
     init(controller:RegisterTVC) {
-        super.init()
         self.controller = controller
     }
 }

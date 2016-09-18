@@ -46,6 +46,8 @@
 		7A7F6E501D67330C000897EC /* FriendRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F6E4F1D67330C000897EC /* FriendRequestVC.swift */; };
 		7A7F6E561D68CD91000897EC /* FriendsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F6E551D68CD91000897EC /* FriendsTVC.swift */; };
 		7A7F6E5A1D68CDF6000897EC /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F6E591D68CDF6000897EC /* FriendCell.swift */; };
+		7A8838E91D8D723D00A093C3 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */; };
+		7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */; };
 		7A93C3821D62BAA6007F4BF5 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */; };
 		7A93C3841D62BB1D007F4BF5 /* UITextView+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */; };
 		7A940AF21D57CA37004A65D3 /* InviteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A940AF11D57CA37004A65D3 /* InviteTVC.swift */; };
@@ -54,7 +56,7 @@
 		7AB6B4D41D52A4D0006E79A6 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB6B4D31D52A4D0006E79A6 /* UIColor+Additions.swift */; };
 		7AB8C3C41D68DE8C0013255F /* Friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C31D68DE8C0013255F /* Friends.plist */; };
 		7AB8C3C61D68DEE20013255F /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C51D68DEE20013255F /* Friend.swift */; };
-		7AB8C3C81D6909EA0013255F /* ScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C71D6909EA0013255F /* ScoreVC.swift */; };
+		7AB8C3C81D6909EA0013255F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C71D6909EA0013255F /* ProfileVC.swift */; };
 		7ABBD19D1D501A97005356F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBD19C1D501A97005356F8 /* AppDelegate.swift */; };
 		7ABBD1A41D501A97005356F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A21D501A97005356F8 /* Main.storyboard */; };
 		7ABBD1A61D501A97005356F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A51D501A97005356F8 /* Assets.xcassets */; };
@@ -114,6 +116,8 @@
 		7A7F6E4F1D67330C000897EC /* FriendRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestVC.swift; sourceTree = "<group>"; };
 		7A7F6E551D68CD91000897EC /* FriendsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTVC.swift; sourceTree = "<group>"; };
 		7A7F6E591D68CDF6000897EC /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
+		7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Placeholder.swift"; sourceTree = "<group>"; };
 		7A940AF11D57CA37004A65D3 /* InviteTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteTVC.swift; sourceTree = "<group>"; };
@@ -122,7 +126,7 @@
 		7AB6B4D31D52A4D0006E79A6 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		7AB8C3C31D68DE8C0013255F /* Friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Friends.plist; sourceTree = "<group>"; };
 		7AB8C3C51D68DEE20013255F /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		7AB8C3C71D6909EA0013255F /* ScoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreVC.swift; sourceTree = "<group>"; };
+		7AB8C3C71D6909EA0013255F /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		7ABBD1991D501A97005356F8 /* Sparty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABBD19C1D501A97005356F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ABBD1A31D501A97005356F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			children = (
 				7A5ECDC71D746B6100275E64 /* NewSpartyVM.swift */,
 				7A4B261E1D84EDAE00475991 /* RegisterVM.swift */,
+				7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */,
 				7ACE52A81D817F69006EAF9D /* UIStoryboard+Additions.swift */,
 				7A3746E21D82E4FB0040AEA8 /* UIViewController+Additions.swift */,
+				7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -265,7 +271,7 @@
 				7A0C26DD1D7CEFD7000FC768 /* NewSpartyTVC.swift */,
 				7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */,
 				7A4B261C1D84E4CD00475991 /* RegisterTVC.swift */,
-				7AB8C3C71D6909EA0013255F /* ScoreVC.swift */,
+				7AB8C3C71D6909EA0013255F /* ProfileVC.swift */,
 				7ACBAFB61D82DDBB00B33389 /* SettingsTVC.swift */,
 				7A086E941D5679D6006A1168 /* SpartiesTVC.swift */,
 				7ABE6E111D857FBF00138BCA /* TabBarController.swift */,
@@ -537,7 +543,8 @@
 				7A7F6E3C1D6490DF000897EC /* CLLocationCoordinate2D+Additions.swift in Sources */,
 				7A4B261D1D84E4CD00475991 /* RegisterTVC.swift in Sources */,
 				7AB8C3C61D68DEE20013255F /* Friend.swift in Sources */,
-				7AB8C3C81D6909EA0013255F /* ScoreVC.swift in Sources */,
+				7A8838E91D8D723D00A093C3 /* UIImage+Additions.swift in Sources */,
+				7AB8C3C81D6909EA0013255F /* ProfileVC.swift in Sources */,
 				7A940AF21D57CA37004A65D3 /* InviteTVC.swift in Sources */,
 				7AEB80891D5E6ECF00725205 /* EditTagsTVC.swift in Sources */,
 				7A7EC9191D5FFBEA00195D2C /* Constants.swift in Sources */,
@@ -551,6 +558,7 @@
 				7A6059841D5FDD080054C186 /* SpartyCell.swift in Sources */,
 				7A7F6E2B1D648561000897EC /* HeaderView.swift in Sources */,
 				7A7F6E3A1D6490C3000897EC /* String+Additions.swift in Sources */,
+				7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */,
 				7A7F6E4A1D65DDCB000897EC /* Action.swift in Sources */,
 				7AD422A51D62B35C00988DC5 /* CustomPresentAnimationController.swift in Sources */,
 				7ACBAFB71D82DDBB00B33389 /* SettingsTVC.swift in Sources */,

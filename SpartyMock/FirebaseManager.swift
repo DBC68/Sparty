@@ -9,6 +9,23 @@
 import Foundation
 import Firebase
 
+struct ProviderProfile {
+    var providerID: String
+    var uid: String
+    var screenName: String?
+    var email: String?
+    var photoURL: NSURL?
+    
+    init(profile: FIRUserInfo) {
+        providerID = profile.providerID
+        uid = profile.uid;  // Provider-specific UID
+        screenName = profile.displayName
+        email = profile.email
+        photoURL = profile.photoURL
+    }
+}
+
+
 class FirbaseManager: NSObject {
     
     struct Node {
@@ -30,7 +47,7 @@ class FirbaseManager: NSObject {
     //--------------------------------------------------------------------------
     static func saveUsername(userName:String) {
         let path = ref.child(Node.Usernames).child(userName)
-        path.setValue(user!.uid)
+        path.setValue(self.user!.uid)
     }
     
     static func isUniqueScreenName(username:String, completion: (result:Bool) -> Void) {
@@ -45,11 +62,21 @@ class FirbaseManager: NSObject {
     //User
     //--------------------------------------------------------------------------
     static func saveUserInfo(dict: [String:AnyObject]) {
-        let path = ref.child(Node.Users).child(user!.uid)
+        let path = ref.child(Node.Users).child(self.user!.uid)
         path.setValue(dict)
     }
     
-    static func isRegistered(uid:String, completion: (result:Bool) -> Void) {
+    static func providerProfile(completion:(profile: ProviderProfile?) -> Void) {
+        if let user = FIRAuth.auth()?.currentUser {
+            for data in user.providerData {
+                completion(profile: ProviderProfile(profile: data))
+            }
+        } else {
+            completion(profile: nil)
+        }
+    }
+    
+    static func isRegistered(uid:String, completion:(result:Bool) -> Void) {
         let path = ref.child(Node.Users).child(uid)
         path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             completion(result: snapshot.exists())
@@ -58,7 +85,7 @@ class FirbaseManager: NSObject {
         }
     }
     
-    static func observeUser(uid:String, completion: (result:User?) -> Void) {
+    static func observeUser(uid:String, completion:(result:User?) -> Void) {
         let path = ref.child(Node.Users).child(uid)
         path.observeEventType(.Value, withBlock: { (snapshot) in
             

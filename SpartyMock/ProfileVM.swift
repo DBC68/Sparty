@@ -11,8 +11,7 @@ import Foundation
 class ProfileVM {
     
     var controller: ProfileVC!
-    var firstName: String!
-    var lastName: String!
+
     var motto: String!
     {
         didSet {
@@ -20,9 +19,9 @@ class ProfileVM {
         }
     }
     
-    var displayName: String! {
+    var screenName: String! {
         didSet {
-            self.controller.screenNameLabel.text = displayName
+            self.controller.screenNameLabel.text = screenName
         }
     }
     
@@ -32,8 +31,10 @@ class ProfileVM {
         }
     }
     
-    var fullName: String {
-        return firstName + " " + lastName
+    var fullName: String! {
+        didSet {
+            self.controller.nameLabel.text = fullName
+        }
     }
     
     //MARK: - Initializers
@@ -45,7 +46,7 @@ class ProfileVM {
         
             FirbaseManager.observeUser(user.uid) { (result) in
                 
-                self.displayName = result?.displayName
+                self.screenName = result?.screenName
                 
                 if let motto = result?.motto {
                     self.motto = motto
@@ -53,6 +54,10 @@ class ProfileVM {
                 
                 if let photo = result?.photo {
                     self.photo = photo
+                }
+                
+                if let fullName = result?.fullName {
+                    self.fullName = fullName
                 }
             }
         }

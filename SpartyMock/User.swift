@@ -12,23 +12,23 @@ import UIKit
 class User: NSObject {
     
     struct FBKey {
-        static let DisplayName = "displayName"
+        static let ScreenName = "screenName"
         static let Motto = "motto"
         static let PhotoString = "photoString"
         static let Score = "score"
+        static let FullName = "fullName"
 
     }
     
     //MARK: - Properties
     //--------------------------------------------------------------------------
     var uid: String!
-    var firstName:String!
-    var lastName:String!
-    var displayName:String!
+    var screenName:String!
     var email:String!
     var photo:UIImage?
     var motto:String?
     var score:Int = 0
+    var fullName: String!
     
     var photoString: String? {
         if let image = self.photo {
@@ -47,13 +47,10 @@ class User: NSObject {
     init?(dict:[String:AnyObject]) {
         
         guard let
-//            uid = dict["uid"] as? String,
-//            firstName = dict["first"] as? String,
-//            lastName = dict["last"] as? String,
-            displayName = dict[FBKey.DisplayName] as? String,
+            screenName = dict[FBKey.ScreenName] as? String,
 //            email = dict["email"] as? String,
             motto = dict[FBKey.Motto] as? String,
-            photoString = dict[FBKey.PhotoString] as? String,
+            fullName = dict[FBKey.FullName] as? String,
             score = dict[FBKey.Score] as? Int
             else {
         
@@ -62,15 +59,14 @@ class User: NSObject {
                 return
         }
         
-//        self.uid = uid
-//        self.firstName = firstName
-//        self.lastName = lastName
-        self.displayName = displayName
+        self.screenName = screenName
 //        self.email = email
         self.motto = motto
+        self.fullName = fullName
         self.score = score
         
-        if let image = UIImage.stringToImage(photoString) {
+        if let photoString = dict[FBKey.PhotoString] as? String,
+            let image = UIImage.stringToImage(photoString) {
             self.photo = image
         }
     }
@@ -79,7 +75,8 @@ class User: NSObject {
         
         var dict = [String:AnyObject]()
         
-        dict[FBKey.DisplayName] = self.displayName
+        dict[FBKey.ScreenName] = self.screenName
+        dict[FBKey.FullName] = self.fullName
         
         if let motto = self.motto {
             dict[FBKey.Motto] = motto
@@ -131,7 +128,7 @@ class User: NSObject {
         static let UID = "uid"
         static let FirstName = "first"
         static let LastName = "last"
-        static let DisplayName = "displayName"
+        static let ScreenName = "screenName"
         static let Email = "email"
         static let Motto = "motto"
         static let PhotoString = "photoString"
@@ -142,7 +139,7 @@ class User: NSObject {
         archiver.encodeObject(self.uid, forKey: CodingKey.UID)
         archiver.encodeObject(self.firstName, forKey: CodingKey.FirstName)
         archiver.encodeObject(self.lastName, forKey: CodingKey.LastName)
-        archiver.encodeObject(self.displayName, forKey: CodingKey.DisplayName)
+        archiver.encodeObject(self.screenName, forKey: CodingKey.ScreenName)
         archiver.encodeObject(self.email, forKey: CodingKey.Email)
         archiver.encodeObject(self.motto, forKey: CodingKey.Motto)
         archiver.encodeObject(self.photoString, forKey: CodingKey.PhotoString)
@@ -156,7 +153,7 @@ class User: NSObject {
         self.uid = unarchiver.decodeObjectForKey(CodingKey.UID) as! String
         self.firstName = unarchiver.decodeObjectForKey(CodingKey.FirstName) as! String
         self.lastName = unarchiver.decodeObjectForKey(CodingKey.LastName) as! String
-        self.displayName = unarchiver.decodeObjectForKey(CodingKey.DisplayName) as! String
+        self.screenName = unarchiver.decodeObjectForKey(CodingKey.ScreenName) as! String
         self.email = unarchiver.decodeObjectForKey(CodingKey.Email) as! String
         self.motto = unarchiver.decodeObjectForKey(CodingKey.Motto) as? String
         self.score = Int(unarchiver.decodeObjectForKey(CodingKey.Score) as! Int)
@@ -173,9 +170,9 @@ class User: NSObject {
 
 extension User {
     
-    var fullName: String {
-        return "\(self.firstName) \(self.lastName)"
-    }
+//    var fullName: String {
+//        return "\(self.firstName) \(self.lastName)"
+//    }
     
     var credits: Int {
         return Int(Double(score) * Constants.creditPercent)

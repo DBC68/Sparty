@@ -28,12 +28,17 @@ class RegisterVM {
 
     var photo: UIImage?
     
-    
     func createUser() -> User {
         let user = User()
-        user.displayName = username
+        user.screenName = username
         user.motto = motto
         user.photo = photo
+        
+        FirbaseManager.providerProfile { (profile) in
+            user.fullName = profile?.screenName
+            user.email = profile?.email
+        }
+        
         return user
     }
     

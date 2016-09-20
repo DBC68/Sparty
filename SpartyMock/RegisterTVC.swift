@@ -11,6 +11,10 @@ import Firebase
 
 class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PhotoViewerDelegate {
     
+    struct Segue {
+        static let UnwindToActivities = "UNWIND_TO_ACTIVITIES_SEGUE"
+    }
+    
     //MARK: - Properties
     //--------------------------------------------------------------------------
     var vm: RegisterVM!
@@ -71,13 +75,15 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
                     
                     let user = self.vm.createUser()
                     
-                    FirbaseManager.saveUsername(user.displayName)
+                    FirbaseManager.saveUsername(user.screenName)
                     
                     FirbaseManager.saveUserInfo(user.dict())
                     
                     NSUserDefaults.setIsRegistered(true)
                     
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.performSegueWithIdentifier(Segue.UnwindToActivities, sender: self)
+                    
+//                    self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     self.showMessagePrompt("The screenName \(self.vm.username) is already taken.  Please try again.")
                 }

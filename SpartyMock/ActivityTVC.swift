@@ -134,5 +134,9 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return customDismissAnimationController
     }
+    
+    //MARK: - Navigation
+    //--------------------------------------------------------------------------
+    @IBAction func unwindToActivities(segue: UIStoryboardSegue) { }
 
 }

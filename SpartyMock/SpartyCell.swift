@@ -29,9 +29,8 @@ class SpartyCell: UITableViewCell {
 //
 //            if sparty.isMySparty == false {
 //                
-                if let first = user?.firstName,
-                    last = user?.lastName {
-                    hostString = "Hosted by \(first) \(last)"
+                if let fullName = user?.fullName {
+                    hostString = "Hosted by \(fullName)"
                 }
 //            }
             

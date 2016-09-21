@@ -20,9 +20,9 @@ struct PlistNames {
 
 class DataStore {
     
-    static let sharedInstance = DataStore()
+    static let sharedInstance: DataStore = DataStore()
     
-    var user: User! //The logged in user
+    var user: User? //Logged in user
     
     var users = [User]()
     var friends = [Friend]()
@@ -41,17 +41,26 @@ class DataStore {
         return score/10
     }
     
+    init() {
+        if let user = FirbaseManager.user {
+            FirbaseManager.loadUser(user.uid) { (result) in
+                self.user = result
+            }
+        }
+    }
+
+    
     
     func loadMockData() {
-        loadUsers()
-        loadFriends()
-        loadActions()
-        loadActivities()
-        loadSparties()
-        loadGuests()
-        loadMenuItems()
-        
-        self.user = userForUserId("man0")
+//        loadUsers()
+//        loadFriends()
+//        loadActions()
+//        loadActivities()
+//        loadSparties()
+//        loadGuests()
+//        loadMenuItems()
+//        
+//        self.user = userForUserId("man0")
     }
     
     //MARK: - Users

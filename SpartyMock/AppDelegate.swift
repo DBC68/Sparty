@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         NSUserDefaults.registerSpartyDefaults()
         
+        let _ = DataStore.sharedInstance
+        
         return true
     }
     

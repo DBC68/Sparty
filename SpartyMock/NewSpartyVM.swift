@@ -34,7 +34,7 @@ class NewSpartyVM {
     init(sparty:Sparty?, controller:NewSpartyTVC) {
         self.sparty = sparty
         self.controller = controller
-        self.controller.photoView.image = DataStore.sharedInstance.user.photo
+        self.controller.photoView.image = DataStore.sharedInstance.user!.photo
     }
     
     //MARK: - Formatters

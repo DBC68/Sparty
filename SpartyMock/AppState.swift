@@ -95,7 +95,7 @@ class AppState: NSObject {
     
     static func fileInDocumentsDirectory(filename: String) -> String {
         
-        let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
+        let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)!
         return fileURL.path!
         
     }

@@ -32,8 +32,8 @@ class User: NSObject {
     
     var photoString: String? {
         if let image = self.photo {
-            let resized = image.resize(200.0)
-            if let imageData = UIImagePNGRepresentation(resized) {
+            
+            if let imageData = UIImagePNGRepresentation(image.resize(200.0)) {
                 return imageData.base64EncodedStringWithOptions([])
             }
         }
@@ -46,12 +46,11 @@ class User: NSObject {
     
     init?(dict:[String:AnyObject]) {
         
-        guard let
-            screenName = dict[FBKey.ScreenName] as? String,
+        guard let screenName = dict[FBKey.ScreenName] as? String,
 //            email = dict["email"] as? String,
-            motto = dict[FBKey.Motto] as? String,
-            fullName = dict[FBKey.FullName] as? String,
-            score = dict[FBKey.Score] as? Int
+            let motto = dict[FBKey.Motto] as? String,
+            let fullName = dict[FBKey.FullName] as? String,
+            let score = dict[FBKey.Score] as? Int
             else {
         
                 print("Could not parse user object")
@@ -82,11 +81,10 @@ class User: NSObject {
             dict[FBKey.Motto] = motto
         }
         
-        if let image = self.photo {
-            let resized = image.resize(200.0)
-            if let str = UIImage.imageToString(resized) {
+        if let image = self.photo,
+            let str = UIImage.imageToString(image.resize(200.0)) {
                 dict[FBKey.PhotoString] = str
-            }
+            
         }
         
         dict[FBKey.Score] = self.score

@@ -21,7 +21,7 @@ class CustomPresentAnimationController: NSObject, UIViewControllerAnimatedTransi
         let containerView = transitionContext.containerView()
         let bounds = UIScreen.mainScreen().bounds
         toViewController.view.frame = CGRectOffset(finalFrameForVC, 0, -bounds.size.height)
-        containerView?.addSubview(toViewController.view)
+        containerView.addSubview(toViewController.view)
         
         
         UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, usingSpringWithDamping: 300, initialSpringVelocity: 5.0, options: .BeginFromCurrentState, animations: {

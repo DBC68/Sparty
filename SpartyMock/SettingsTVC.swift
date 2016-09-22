@@ -12,19 +12,17 @@ import GoogleSignIn
 
 class SettingsTVC: UITableViewController {
 
+    //MARK: - Outlets
+    //--------------------------------------------------------------------------
+    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var mottoLabel: UILabel!
+    
+    //MARK: - View Lifecycle
+    //--------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let _ = SettingsVM(controller: self)
     }
     
     //MARK: - Actions
@@ -36,28 +34,7 @@ class SettingsTVC: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .Default, handler: { action in
             
-            try! FIRAuth.auth()!.signOut()
-            
-            GIDSignIn.sharedInstance().signOut()
-            
-            NSUserDefaults.setIsRegistered(false)
-            
-//            if let controller:GoogleSignInVC = UIStoryboard.loadFromStoryboard() {
-//                controller.modalTransitionStyle = .CrossDissolve
-//                self.presentViewController(controller, animated: true) {
-            
-                    //Go to first tab after logging out
-                    dispatch_async(dispatch_get_main_queue(),{
-                        if let tabBarController = self.tabBarController {
-                            tabBarController.selectedIndex = 0
-                        }
-                    })
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(Notifications.ShowLogin, object: nil)
-                    
-                    
-//                }
-//            }
+            FirbaseManager.logOut()
             
         }))
         

@@ -46,6 +46,7 @@
 		7A7F6E501D67330C000897EC /* FriendRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F6E4F1D67330C000897EC /* FriendRequestVC.swift */; };
 		7A7F6E561D68CD91000897EC /* FriendsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F6E551D68CD91000897EC /* FriendsTVC.swift */; };
 		7A7F6E5A1D68CDF6000897EC /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F6E591D68CDF6000897EC /* FriendCell.swift */; };
+		7A8381B11D92B77200512F07 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8381B01D92B77200512F07 /* SettingsVM.swift */; };
 		7A8838E91D8D723D00A093C3 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */; };
 		7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */; };
 		7A93C3821D62BAA6007F4BF5 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */; };
@@ -116,6 +117,7 @@
 		7A7F6E4F1D67330C000897EC /* FriendRequestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestVC.swift; sourceTree = "<group>"; };
 		7A7F6E551D68CD91000897EC /* FriendsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTVC.swift; sourceTree = "<group>"; };
 		7A7F6E591D68CDF6000897EC /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		7A8381B01D92B77200512F07 /* SettingsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				7A5ECDC71D746B6100275E64 /* NewSpartyVM.swift */,
 				7A4B261E1D84EDAE00475991 /* RegisterVM.swift */,
 				7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */,
+				7A8381B01D92B77200512F07 /* SettingsVM.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -413,6 +416,8 @@
 				TargetAttributes = {
 					7ABBD1981D501A97005356F8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T646DXUCKX;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -547,6 +552,7 @@
 				7AB8C3C81D6909EA0013255F /* ProfileVC.swift in Sources */,
 				7A940AF21D57CA37004A65D3 /* InviteTVC.swift in Sources */,
 				7AEB80891D5E6ECF00725205 /* EditTagsTVC.swift in Sources */,
+				7A8381B11D92B77200512F07 /* SettingsVM.swift in Sources */,
 				7A7EC9191D5FFBEA00195D2C /* Constants.swift in Sources */,
 				7AEB808B1D5E7B4500725205 /* CheckInVC.swift in Sources */,
 				7A7F6E3E1D649101000897EC /* MKMapItem+Additions.swift in Sources */,
@@ -677,12 +683,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = T646DXUCKX;
 				INFOPLIST_FILE = SpartyMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distalindustries.Sparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartyMock/Sparty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -692,11 +700,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = T646DXUCKX;
 				INFOPLIST_FILE = SpartyMock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distalindustries.Sparty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpartyMock/Sparty-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

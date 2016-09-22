@@ -21,28 +21,30 @@ class CustomDismissAnimationController: NSObject, UIViewControllerAnimatedTransi
         
         toViewController.view.frame = finalFrameForVC
         
-        let snapshotView = fromViewController.view.snapshotViewAfterScreenUpdates(false)
-        snapshotView.frame = fromViewController.view.frame
-        
-        if let containerView = transitionContext.containerView() {
+        if let snapshotView = fromViewController.view.snapshotViewAfterScreenUpdates(false) {
+            
+            snapshotView.frame = fromViewController.view.frame
+            
+            let containerView = transitionContext.containerView()
             containerView.addSubview(toViewController.view)
             containerView.sendSubviewToBack(toViewController.view)
             containerView.addSubview(snapshotView)
-        }
-        
-        var frame  = finalFrameForVC
-        frame.origin.y -= UIScreen.mainScreen().bounds.size.height
-        
-        fromViewController.view.removeFromSuperview()
-        
-        UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, usingSpringWithDamping: 300, initialSpringVelocity: 5.0, options: .BeginFromCurrentState, animations: {
-            snapshotView.frame = frame
             
-            }, completion: {
-                finished in
-                snapshotView.removeFromSuperview()
-                transitionContext.completeTransition(true)
-        })
+            
+            var frame  = finalFrameForVC
+            frame.origin.y -= UIScreen.mainScreen().bounds.size.height
+            
+            fromViewController.view.removeFromSuperview()
+            
+            UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.0, usingSpringWithDamping: 300, initialSpringVelocity: 5.0, options: .BeginFromCurrentState, animations: {
+                snapshotView.frame = frame
+                
+                }, completion: {
+                    finished in
+                    snapshotView.removeFromSuperview()
+                    transitionContext.completeTransition(true)
+            })
+        }
     }
     
 }

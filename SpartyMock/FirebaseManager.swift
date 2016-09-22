@@ -46,12 +46,12 @@ class FirbaseManager: NSObject {
     //Username
     //--------------------------------------------------------------------------
     static func saveUsername(userName:String) {
-        let path = ref.child(Node.Usernames).child(userName)
+        let path = self.ref.child(Node.Usernames).child(userName)
         path.setValue(self.user!.uid)
     }
     
     static func isUniqueScreenName(username:String, completion: (result:Bool) -> Void) {
-        let path = ref.child(Node.Usernames).child(username)
+        let path = self.ref.child(Node.Usernames).child(username)
         path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             completion(result: snapshot.exists() == false)
         }) { (error) in
@@ -62,7 +62,7 @@ class FirbaseManager: NSObject {
     //User
     //--------------------------------------------------------------------------
     static func saveUserInfo(dict: [String:AnyObject]) {
-        let path = ref.child(Node.Users).child(self.user!.uid)
+        let path = self.ref.child(Node.Users).child(self.user!.uid)
         path.setValue(dict)
     }
     
@@ -77,7 +77,7 @@ class FirbaseManager: NSObject {
     }
     
     static func isRegistered(uid:String, completion:(result:Bool) -> Void) {
-        let path = ref.child(Node.Users).child(uid)
+        let path = self.ref.child(Node.Users).child(uid)
         path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             completion(result: snapshot.exists())
         }) { (error) in
@@ -86,7 +86,7 @@ class FirbaseManager: NSObject {
     }
     
     static func observeUser(uid:String, completion:(result:User?) -> Void) {
-        let path = ref.child(Node.Users).child(uid)
+        let path = self.ref.child(Node.Users).child(uid)
         path.observeEventType(.Value, withBlock: { (snapshot) in
             
             guard snapshot.exists() else {
@@ -106,7 +106,7 @@ class FirbaseManager: NSObject {
     }
     
     static func loadUser(uid:String, completion:(result:User?) -> Void) {
-        let path = ref.child(Node.Users).child(uid)
+        let path = self.ref.child(Node.Users).child(uid)
         path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             guard snapshot.exists() else {
@@ -123,5 +123,18 @@ class FirbaseManager: NSObject {
             completion(result: nil)
             print(error.localizedDescription)
         }
+    }
+    
+    static func logOut() {
+        
+        self.ref.removeAllObservers()
+        
+        try! FIRAuth.auth()!.signOut()
+        
+        GIDSignIn.sharedInstance().signOut()
+        
+        NSUserDefaults.setIsRegistered(false)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(Notifications.ShowLogin, object: nil)
     }
 }

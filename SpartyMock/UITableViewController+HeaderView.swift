@@ -30,7 +30,9 @@ extension UITableViewController {
     func setupHeaderView() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.rotated), name: UIDeviceOrientationDidChangeNotification, object: nil)
-        let headerView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)[0] as! HeaderView
+        guard let headerView = NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)!.first as? HeaderView else {
+            return
+        }
         headerView.hidden = true
         self.tableView.tableHeaderView = headerView
         self.tableView.contentInset = UIEdgeInsets(top: -headerView.frame.size.height, left: 0, bottom: 0, right: 0)
@@ -38,40 +40,50 @@ extension UITableViewController {
     
     func rotated() {
         
-        guard let headerView = self.tableView.tableHeaderView as? HeaderView where headerView.hidden == false else {return}
-        let labelHeight = headerView.messageLabel.frame.size.height + 20
-        formatTableHeader(headerView, height: labelHeight)
-        hideHeaderView()
+        guard let headerView = self.tableView.tableHeaderView as? HeaderView else {return}
+        if headerView.hidden == false {
+            let labelHeight = headerView.messageLabel.frame.size.height + 20
+            formatTableHeader(headerView, height: labelHeight)
+            hideHeaderView()
+        }
     }
     
     func showHeaderView(message: String, textColor:UIColor = UIColor.whiteColor(), backgroundColor:UIColor = UIColor.redColor(), duration: Double = 0.2) {
         
-        guard let headerView = self.tableView.tableHeaderView as? HeaderView where headerView.hidden == true else {return}
+        guard let headerView = self.tableView.tableHeaderView as? HeaderView else {return}
         
-        headerView.hidden = false
-        headerView.backgroundColor = backgroundColor
-        headerView.messageLabel.textColor = textColor
-        headerView.messageLabel.text = message
-        headerView.messageLabel.numberOfLines = 0
-        headerView.messageLabel.sizeToFit()
+        if headerView.hidden == false {
+            
+            headerView.hidden = false
+            headerView.backgroundColor = backgroundColor
+            headerView.messageLabel.textColor = textColor
+            headerView.messageLabel.text = message
+            headerView.messageLabel.numberOfLines = 0
+            headerView.messageLabel.sizeToFit()
+            
+            let labelHeight = headerView.messageLabel.frame.size.height + 20
+            
+            formatTableHeader(headerView, height: labelHeight)
+            
+            UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                }, completion: nil)
+        }
         
-        let labelHeight = headerView.messageLabel.frame.size.height + 20
-        
-        formatTableHeader(headerView, height: labelHeight)
-        
-        UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            }, completion: nil)
     }
     
     func hideHeaderView(duration: Double = 0.2) {
         
-        guard let headerView = self.tableView.tableHeaderView as? HeaderView where headerView.hidden == false else {return}
+        guard let headerView = self.tableView.tableHeaderView as? HeaderView else {return}
         
-        UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.tableView.contentInset = UIEdgeInsets(top: -headerView.frame.size.height, left: 0, bottom: 0, right: 0)
-            }, completion: { finished in
-                headerView.hidden = true
-        })
+        if headerView.hidden == false {
+            UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.tableView.contentInset = UIEdgeInsets(top: -headerView.frame.size.height, left: 0, bottom: 0, right: 0)
+                }, completion: { finished in
+                    headerView.hidden = true
+            })
+            
+        }
+        
     }
 }

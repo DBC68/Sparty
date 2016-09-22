@@ -72,6 +72,8 @@ class ProfileVM {
         
             FirbaseManager.observeUser(user.uid) { (result) in
                 
+                guard result != nil else {return}
+                
                 self.screenName = result?.screenName
                 
                 if let motto = result?.motto {

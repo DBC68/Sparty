@@ -13,6 +13,7 @@
 		7A2BD6BA1D566E3500BC58EC /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD6B91D566E3500BC58EC /* RoundedImage.swift */; };
 		7A2BD6C21D5673BE00BC58EC /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BD6C11D5673BE00BC58EC /* FriendVC.swift */; };
 		7A3746E31D82E4FB0040AEA8 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3746E21D82E4FB0040AEA8 /* UIViewController+Additions.swift */; };
+		7A44A1BD1D940FB40038A46E /* StoryboardIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A44A1BC1D940FB40038A46E /* StoryboardIDs.swift */; };
 		7A4688261D8103FA00888972 /* GoogleSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4688251D8103FA00888972 /* GoogleSignInVC.swift */; };
 		7A4B261D1D84E4CD00475991 /* RegisterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B261C1D84E4CD00475991 /* RegisterTVC.swift */; };
 		7A4B261F1D84EDAE00475991 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B261E1D84EDAE00475991 /* RegisterVM.swift */; };
@@ -84,6 +85,7 @@
 		7A2BD6B91D566E3500BC58EC /* RoundedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		7A2BD6C11D5673BE00BC58EC /* FriendVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
 		7A3746E21D82E4FB0040AEA8 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
+		7A44A1BC1D940FB40038A46E /* StoryboardIDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIDs.swift; sourceTree = "<group>"; };
 		7A4688251D8103FA00888972 /* GoogleSignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSignInVC.swift; sourceTree = "<group>"; };
 		7A4B261C1D84E4CD00475991 /* RegisterTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTVC.swift; sourceTree = "<group>"; };
 		7A4B261E1D84EDAE00475991 /* RegisterVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
@@ -257,7 +259,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		7A6059761D5F9C4E0054C186 /* Controllers */ = {
+		7A6059761D5F9C4E0054C186 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				7AB6B4D11D52A4B9006E79A6 /* ActivityTVC.swift */,
@@ -279,7 +281,7 @@
 				7A086E941D5679D6006A1168 /* SpartiesTVC.swift */,
 				7ABE6E111D857FBF00138BCA /* TabBarController.swift */,
 			);
-			name = Controllers;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		7A60597C1D5FA7220054C186 /* Cells */ = {
@@ -299,6 +301,7 @@
 				7A4C881C1D6C7743004A757B /* LocationHelper.swift */,
 				7A4C881A1D6C73EA004A757B /* Locator.swift */,
 				7A17DFE21D8821D300EB9EAF /* Notifications.swift */,
+				7A44A1BC1D940FB40038A46E /* StoryboardIDs.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -336,8 +339,6 @@
 			children = (
 				7A60597C1D5FA7220054C186 /* Cells */,
 				7A6059731D5F9C1C0054C186 /* Classes */,
-				7A6059761D5F9C4E0054C186 /* Controllers */,
-				7A0C26DC1D7CEF7D000FC768 /* View Models */,
 				7A6059701D5F9BF30054C186 /* Extensions */,
 				7A7F6E261D648547000897EC /* Header View */,
 				7A7EC9171D5FFBA600195D2C /* Helpers */,
@@ -346,6 +347,8 @@
 				7A3FAF0D1D86D502000CF696 /* Services */,
 				7A6059741D5F9C330054C186 /* Shared Files */,
 				7A6059721D5F9C0C0054C186 /* Storyboards */,
+				7A6059761D5F9C4E0054C186 /* View Controllers */,
+				7A0C26DC1D7CEF7D000FC768 /* View Models */,
 			);
 			name = Sparty;
 			path = SpartyMock;
@@ -563,6 +566,7 @@
 				7ABE6E0C1D85776300138BCA /* FirebaseManager.swift in Sources */,
 				7A6059841D5FDD080054C186 /* SpartyCell.swift in Sources */,
 				7A7F6E2B1D648561000897EC /* HeaderView.swift in Sources */,
+				7A44A1BD1D940FB40038A46E /* StoryboardIDs.swift in Sources */,
 				7A7F6E3A1D6490C3000897EC /* String+Additions.swift in Sources */,
 				7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */,
 				7A7F6E4A1D65DDCB000897EC /* Action.swift in Sources */,

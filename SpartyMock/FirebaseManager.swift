@@ -25,6 +25,11 @@ struct ProviderProfile {
     }
 }
 
+enum Result<T> {
+    case Success(T)
+    case Failure(ErrorType)
+}
+
 
 class FirbaseManager: NSObject {
     
@@ -122,6 +127,21 @@ class FirbaseManager: NSObject {
         }) { (error) in
             completion(result: nil)
             print(error.localizedDescription)
+        }
+    }
+    
+    static func signInGoogle(user:GIDGoogleUser, completion:(Result<FIRUser>) -> Void) {
+        
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
+                                                                     accessToken: authentication.accessToken)
+        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            
+            if let error = error {
+                completion(.Failure(error))
+                return
+            }
+            completion(.Success(user!))
         }
     }
     

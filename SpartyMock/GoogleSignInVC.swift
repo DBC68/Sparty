@@ -50,44 +50,42 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     //MARK - Google
     //--------------------------------------------------------------------------
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-        if let error = error {
-            showMessagePrompt(error.localizedDescription)
+        guard error == nil else {
+            print(error.localizedDescription)
+            assertionFailure()
             return
         }
         
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
-                                                                     accessToken: authentication.accessToken)
-        
-        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            
-            if let error = error {
-                self.showMessagePrompt(error.localizedDescription)
+        FirbaseManager.signInGoogle(user) { (result) in
+            switch result {
+            case .Success(let user):
+                self.checkIfUserIsRegistered(user)
+            case .Failure(let error):
+                print(error)
+                assertionFailure()
                 return
             }
-            
-            FirbaseManager.isRegistered(user!.uid, completion: { (result) in
-                
-                dispatch_async(dispatch_get_main_queue(),{
-                    
-                    //If is registered, dismiss login else show register screen
-                    if result == true {
-                        NSUserDefaults.setIsRegistered(true)
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    } else {
-                        if let nav = UIStoryboard.loadNavFromStoryboard("RegisterNav") {
-                            nav.modalTransitionStyle = .CrossDissolve
-                            self.presentViewController(nav, animated: true, completion: nil)
-                        }
-                    }
-                })
-            })
-            
-            
         }
-
     }
     
-    
-
+    func checkIfUserIsRegistered(user: FIRUser) {
+        FirbaseManager.isRegistered(user.uid, completion: { (result) in
+            
+            dispatch_async(dispatch_get_main_queue(),{
+                
+                //If is registered, dismiss login else show register screen
+                if result == true {
+                    print("User exists")
+                    NSUserDefaults.setIsRegistered(true)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    print("User does not exist")
+                    if let nav = UIStoryboard.loadNavFromStoryboard(StoryboardIDs.RegisterNav) {
+                        nav.modalTransitionStyle = .CrossDissolve
+                        self.presentViewController(nav, animated: true, completion: nil)
+                    }
+                }
+            })
+        })
+    }
 }

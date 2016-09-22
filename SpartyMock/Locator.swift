@@ -8,10 +8,7 @@
 
 import CoreLocation
 
-enum Result <T> {
-    case Success(T)
-    case Failure(ErrorType)
-}
+
 
 class Locator: NSObject, CLLocationManagerDelegate {
     

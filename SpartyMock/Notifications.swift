@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Notifications {
+struct Notifications {
     
     static let ShowLogin = "ShowLoginNotification"
     static let ShowRegistration = "ShowRegistrationNotification"

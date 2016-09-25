@@ -77,6 +77,8 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
                     
                     FirbaseManager.saveUsername(user.screenName)
                     
+                    FirbaseManager.saveEmail(user.email)
+                    
                     FirbaseManager.saveUserInfo(user.dict())
                     
                     NSUserDefaults.setIsRegistered(true)

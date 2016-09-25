@@ -36,6 +36,7 @@ class FirbaseManager: NSObject {
     struct Node {
         static let Users = "users"
         static let Usernames = "usernames"
+        static let Emails = "emails"
     }
     
     struct Key {
@@ -51,17 +52,24 @@ class FirbaseManager: NSObject {
     //Username
     //--------------------------------------------------------------------------
     static func saveUsername(userName:String) {
-        let path = self.ref.child(Node.Usernames).child(userName)
+        let path = self.ref.child(Node.Usernames).child(userName.toBase64())
         path.setValue(self.user!.uid)
     }
     
     static func isUniqueScreenName(username:String, completion: (result:Bool) -> Void) {
-        let path = self.ref.child(Node.Usernames).child(username)
+        let path = self.ref.child(Node.Usernames).child(username.toBase64())
         path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             completion(result: snapshot.exists() == false)
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    //Email
+    //--------------------------------------------------------------------------
+    static func saveEmail(email:String) {
+        let path = self.ref.child(Node.Emails).child(email.toBase64())
+        path.setValue(self.user!.uid)
     }
     
     //User

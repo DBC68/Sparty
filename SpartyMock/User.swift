@@ -17,6 +17,7 @@ class User: NSObject {
         static let PhotoString = "photoString"
         static let Score = "score"
         static let FullName = "fullName"
+        static let Email = "email"
 
     }
     
@@ -76,6 +77,7 @@ class User: NSObject {
         
         dict[FBKey.ScreenName] = self.screenName
         dict[FBKey.FullName] = self.fullName
+        dict[FBKey.Email] = self.email
         
         if let motto = self.motto {
             dict[FBKey.Motto] = motto

@@ -107,6 +107,10 @@ class FriendsTVC: UITableViewController, UISearchBarDelegate, FriendUpdateDelega
         alertController.addAction(UIAlertAction(title: "Search Sparty Users", style: .Default, handler: { (action) in
             self.view.endEditing(true)
             
+            let storyboard = UIStoryboard(name: "FriendRequest", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("FriendRequestNav") as! UINavigationController
+            self.presentViewController(vc, animated: true, completion: nil)
+            
         }))
         
         alertController.addAction(UIAlertAction(title: "From Contacts", style: .Default, handler: { (action) in

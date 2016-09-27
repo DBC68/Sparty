@@ -72,6 +72,8 @@
 		7ACE52A91D817F69006EAF9D /* UIStoryboard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE52A81D817F69006EAF9D /* UIStoryboard+Additions.swift */; };
 		7AD422A31D62B33D00988DC5 /* CustomDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD422A21D62B33D00988DC5 /* CustomDismissAnimationController.swift */; };
 		7AD422A51D62B35C00988DC5 /* CustomPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD422A41D62B35C00988DC5 /* CustomPresentAnimationController.swift */; };
+		7AE542A11D9A923E00DD2F41 /* FriendRequest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE542A01D9A923E00DD2F41 /* FriendRequest.storyboard */; };
+		7AE542A31D9A985000DD2F41 /* FriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE542A21D9A985000DD2F41 /* FriendRequestCell.swift */; };
 		7AEB80891D5E6ECF00725205 /* EditTagsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB80881D5E6ECF00725205 /* EditTagsTVC.swift */; };
 		7AEB808B1D5E7B4500725205 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB808A1D5E7B4500725205 /* CheckInVC.swift */; };
 		7AED75AB1D60F13A00DA505A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED75AA1D60F13A00DA505A /* MenuItem.swift */; };
@@ -148,6 +150,8 @@
 		7ACE52A81D817F69006EAF9D /* UIStoryboard+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additions.swift"; sourceTree = "<group>"; };
 		7AD422A21D62B33D00988DC5 /* CustomDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDismissAnimationController.swift; sourceTree = "<group>"; };
 		7AD422A41D62B35C00988DC5 /* CustomPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimationController.swift; sourceTree = "<group>"; };
+		7AE542A01D9A923E00DD2F41 /* FriendRequest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendRequest.storyboard; sourceTree = "<group>"; };
+		7AE542A21D9A985000DD2F41 /* FriendRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestCell.swift; sourceTree = "<group>"; };
 		7AEB80881D5E6ECF00725205 /* EditTagsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTagsTVC.swift; sourceTree = "<group>"; };
 		7AEB808A1D5E7B4500725205 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
 		7AED75AA1D60F13A00DA505A /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				7ABBD1A71D501A97005356F8 /* LaunchScreen.storyboard */,
 				7ABBD1A21D501A97005356F8 /* Main.storyboard */,
+				7AE542A01D9A923E00DD2F41 /* FriendRequest.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				7A60597D1D5FA7380054C186 /* ActivityCell.swift */,
 				7A6059831D5FDD080054C186 /* SpartyCell.swift */,
 				7A7F6E591D68CDF6000897EC /* FriendCell.swift */,
+				7AE542A21D9A985000DD2F41 /* FriendRequestCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				7A6059691D5F3E790054C186 /* Users.plist in Resources */,
 				7A60596B1D5F97710054C186 /* Activities.plist in Resources */,
 				7A7EC91B1D60847400195D2C /* Guests.plist in Resources */,
+				7AE542A11D9A923E00DD2F41 /* FriendRequest.storyboard in Resources */,
 				7ACAB3081D80BB9B000E2C9C /* GoogleService-Info.plist in Resources */,
 				7A6059821D5FD8920054C186 /* Sparties.plist in Resources */,
 				7AB8C3C41D68DE8C0013255F /* Friends.plist in Resources */,
@@ -540,6 +547,7 @@
 				7A60596D1D5F99E60054C186 /* Activity.swift in Sources */,
 				7A4C881B1D6C73EA004A757B /* Locator.swift in Sources */,
 				7A7F6E5A1D68CDF6000897EC /* FriendCell.swift in Sources */,
+				7AE542A31D9A985000DD2F41 /* FriendRequestCell.swift in Sources */,
 				7AB6B4D21D52A4B9006E79A6 /* ActivityTVC.swift in Sources */,
 				7A6059671D5F3D450054C186 /* User.swift in Sources */,
 				7A7EC9161D5FF5DC00195D2C /* Guest.swift in Sources */,

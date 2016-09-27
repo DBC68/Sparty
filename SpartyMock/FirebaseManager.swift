@@ -65,6 +65,19 @@ class FirbaseManager: NSObject {
         }
     }
     
+    static func search(forUsername username:String, completion: (found:String?) -> Void) {
+        let path = self.ref.child(Node.Usernames).child(username.toBase64())
+        path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            if snapshot.exists() {
+                completion(found: snapshot.value as? String)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     //Email
     //--------------------------------------------------------------------------
     static func saveEmail(email:String) {

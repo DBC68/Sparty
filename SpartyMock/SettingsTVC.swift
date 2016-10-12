@@ -34,7 +34,7 @@ class SettingsTVC: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .Default, handler: { action in
             
-            FirbaseManager.logOut()
+            FirebaseManager.logOut()
             
         }))
         

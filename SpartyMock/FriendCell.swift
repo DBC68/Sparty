@@ -7,37 +7,36 @@
 //
 
 import UIKit
+import Firebase
 
 class FriendCell: UITableViewCell {
     
-    var friend: Friend! {
-        didSet {
-            
-            let user = DataStore.sharedInstance.userForUserId(friend.userId)
-            
-            self.nameLabel.text = user!.fullName + (friend.isVIP == true ? " 👑" : "")
-            self.photoView.image = user!.photo
-            
-            let pointString = user!.pointsString + " points"
-            self.pointsLabel.text = pointString
-            
-            self.accessoryType = .DisclosureIndicator
-
+    //MARK: - Outlets
+    //--------------------------------------------------------------------------
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    
+    //MARK: - Setup
+    //--------------------------------------------------------------------------
+    func configure(uid: String) {
+        
+        FirebaseManager.user(forUserID: uid) { user in
+    
+            dispatch_async(dispatch_get_main_queue(),{
+                self.nameLabel.text = user.fullName
+                self.photoView.image = user.photo
+                
+                let pointString = user.pointsString + " points"
+                self.pointsLabel.text = pointString
+            })
         }
+
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.accessoryType = .DisclosureIndicator
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    @IBOutlet weak var photoView: RoundedImage!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var pointsLabel: UILabel!
 }

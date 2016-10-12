@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the screen name of the person you want to send a friend request to." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZZ-Z4-43S">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for your friends using Sparty." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZZ-Z4-43S">
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfJ-M6-FYj">
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="YvQ-dk-DoJ"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5kn-ff-wmT" id="FJz-7G-Mez">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gio-ai-8S6" customClass="RoundedImage" customModule="Sparty" customModuleProvider="target">
@@ -95,7 +95,6 @@
                                                 <constraint firstItem="Gio-ai-8S6" firstAttribute="leading" secondItem="FJz-7G-Mez" secondAttribute="leading" constant="15" id="vPM-eu-2fS"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         <connections>
                                             <outlet property="addButton" destination="5WD-SA-PxG" id="mUw-t0-b3n"/>
                                             <outlet property="photoView" destination="Gio-ai-8S6" id="9Lz-Yg-FJ7"/>
@@ -126,7 +125,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friend Request" id="tay-Nq-ryY">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="qz4-Ic-dBR">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="qz4-Ic-dBR">
                             <connections>
                                 <action selector="doneAction:" destination="o8y-pG-crV" id="pOc-eE-Pmf"/>
                             </connections>

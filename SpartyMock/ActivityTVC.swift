@@ -32,7 +32,7 @@ class ActivityTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
         
         self.navigationItem.titleView = self.filterMenuButton()
         
-        tabBarController?.tabBar.items?[2].badgeValue = "1"
+//        tabBarController?.tabBar.items?[2].badgeValue = "1"
         
 //        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
 //        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)

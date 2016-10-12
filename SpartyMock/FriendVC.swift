@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol FriendUpdateDelegate: class {
-    func friendUpdated()
-}
-
-
 class FriendVC: UIViewController {
 
     @IBOutlet weak var photoView: RoundedImage!
@@ -29,28 +24,27 @@ class FriendVC: UIViewController {
     @IBOutlet weak var crownLabel: UILabel!
     
     var friend: Friend!
-    weak var delegate: FriendUpdateDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let user = DataStore.sharedInstance.userForUserId(friend.userId) else { return }
-        
-        self.photoView.image = user.photo
-        self.pointsLabel.text = "\(Int(user.score)) points"
-        self.rankingLabel.text = "\(self.friend.ranking)"
-        self.creditsLabel.text = "\(Int(user.credits)) credits"
-        self.nameLabel.text = user.fullName
-        self.screenNameLabel.text = user.screenName
-        self.mottoLabel.text = user.motto
-        
-        if self.friend.status == .Invite {
-            self.actionStack.hidden = false
-            self.unfriendButton.hidden = true
-        } else {
-            self.actionStack.hidden = true
-            self.unfriendButton.hidden = false
-        }
+//        guard let user = DataStore.sharedInstance.userForUserId(friend.userId) else { return }
+//        
+//        self.photoView.image = user.photo
+//        self.pointsLabel.text = "\(Int(user.score)) points"
+//        self.rankingLabel.text = "\(self.friend.ranking)"
+//        self.creditsLabel.text = "\(Int(user.credits)) credits"
+//        self.nameLabel.text = user.fullName
+//        self.screenNameLabel.text = user.screenName
+//        self.mottoLabel.text = user.motto
+//        
+//        if self.friend.status == .Invite {
+//            self.actionStack.hidden = false
+//            self.unfriendButton.hidden = true
+//        } else {
+//            self.actionStack.hidden = true
+//            self.unfriendButton.hidden = false
+//        }
         
         self.vipSwitch.setOn(self.friend.isVIP, animated: true)
     }
@@ -62,9 +56,6 @@ class FriendVC: UIViewController {
     }
     @IBAction func vipAction(sender: UISwitch) {
         self.friend.isVIP = (sender.on == true)
-        if let delegate = self.delegate {
-            delegate.friendUpdated()
-        }
     }
     
     @IBAction func unfriendAction(sender: AnyObject) {
@@ -78,10 +69,7 @@ class FriendVC: UIViewController {
         
         let saveActionButton: UIAlertAction = UIAlertAction(title: "Yes", style: .Default)
         { action -> Void in
-            self.friend.status = .Rejected
-            if let delegate = self.delegate {
-                delegate.friendUpdated()
-            }
+//            self.friend.status = .Rejected
             self.navigationController?.popViewControllerAnimated(true)
         }
         
@@ -93,19 +81,13 @@ class FriendVC: UIViewController {
 
     @IBAction func acceptAction(sender: AnyObject) {
         
-        self.friend.status = .Recent
-        if let delegate = self.delegate {
-            delegate.friendUpdated()
-        }
+//        self.friend.status = .Recent
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func denyAction(sender: AnyObject) {
         
-        self.friend.status = .Rejected
-        if let delegate = self.delegate {
-            delegate.friendUpdated()
-        }
+//        self.friend.status = .Rejected}
         self.navigationController?.popViewControllerAnimated(true)
     }
     

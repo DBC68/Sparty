@@ -50,6 +50,7 @@
 		7A8381B11D92B77200512F07 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8381B01D92B77200512F07 /* SettingsVM.swift */; };
 		7A8838E91D8D723D00A093C3 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */; };
 		7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */; };
+		7A8E39271DA3CBC500A8B1F3 /* UIButton+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E39261DA3CBC500A8B1F3 /* UIButton+Additions.swift */; };
 		7A93C3821D62BAA6007F4BF5 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */; };
 		7A93C3841D62BB1D007F4BF5 /* UITextView+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */; };
 		7A940AF21D57CA37004A65D3 /* InviteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A940AF11D57CA37004A65D3 /* InviteTVC.swift */; };
@@ -59,12 +60,12 @@
 		7AB8C3C41D68DE8C0013255F /* Friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C31D68DE8C0013255F /* Friends.plist */; };
 		7AB8C3C61D68DEE20013255F /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C51D68DEE20013255F /* Friend.swift */; };
 		7AB8C3C81D6909EA0013255F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C71D6909EA0013255F /* ProfileVC.swift */; };
+		7AB9055A1DAD05CD000A13BB /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB905591DAD05CD000A13BB /* Node.swift */; };
 		7ABBD19D1D501A97005356F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBD19C1D501A97005356F8 /* AppDelegate.swift */; };
 		7ABBD1A41D501A97005356F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A21D501A97005356F8 /* Main.storyboard */; };
 		7ABBD1A61D501A97005356F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A51D501A97005356F8 /* Assets.xcassets */; };
 		7ABBD1A91D501A97005356F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABBD1A71D501A97005356F8 /* LaunchScreen.storyboard */; };
 		7ABE6E0C1D85776300138BCA /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E0B1D85776300138BCA /* FirebaseManager.swift */; };
-		7ABE6E0E1D857BD400138BCA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E0D1D857BD400138BCA /* AppState.swift */; };
 		7ABE6E121D857FBF00138BCA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE6E111D857FBF00138BCA /* TabBarController.swift */; };
 		7ACAB3081D80BB9B000E2C9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ACAB3071D80BB9B000E2C9C /* GoogleService-Info.plist */; };
 		7ACBAFB71D82DDBB00B33389 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBAFB61D82DDBB00B33389 /* SettingsTVC.swift */; };
@@ -77,6 +78,10 @@
 		7AEB80891D5E6ECF00725205 /* EditTagsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB80881D5E6ECF00725205 /* EditTagsTVC.swift */; };
 		7AEB808B1D5E7B4500725205 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB808A1D5E7B4500725205 /* CheckInVC.swift */; };
 		7AED75AB1D60F13A00DA505A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AED75AA1D60F13A00DA505A /* MenuItem.swift */; };
+		7AF17D3E1DA52E680068BB1D /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17D3D1DA52E680068BB1D /* Array+Additions.swift */; };
+		7AF3B8871DA7C40C00DCEC77 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF3B8861DA7C40C00DCEC77 /* FileManager.swift */; };
+		7AF3B8891DA7CEF200DCEC77 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF3B8881DA7CEF200DCEC77 /* Request.swift */; };
+		7AF3B88C1DAA7E2C00DCEC77 /* Friendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF3B88B1DAA7E2C00DCEC77 /* Friendable.swift */; };
 		9D83213538137002E66F6BAF /* Pods_Sparty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811B5F4D074FDF55E52E20CB /* Pods_Sparty.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +129,7 @@
 		7A8381B01D92B77200512F07 /* SettingsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		7A8838EA1D8EAE4400A093C3 /* ProfileVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		7A8E39261DA3CBC500A8B1F3 /* UIButton+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Additions.swift"; sourceTree = "<group>"; };
 		7A93C3811D62BAA6007F4BF5 /* PhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Placeholder.swift"; sourceTree = "<group>"; };
 		7A940AF11D57CA37004A65D3 /* InviteTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteTVC.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 		7AB8C3C31D68DE8C0013255F /* Friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Friends.plist; sourceTree = "<group>"; };
 		7AB8C3C51D68DEE20013255F /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		7AB8C3C71D6909EA0013255F /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		7AB905591DAD05CD000A13BB /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		7ABBD1991D501A97005356F8 /* Sparty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABBD19C1D501A97005356F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ABBD1A31D501A97005356F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,7 +147,6 @@
 		7ABBD1A81D501A97005356F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ABBD1AA1D501A97005356F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABE6E0B1D85776300138BCA /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		7ABE6E0D1D857BD400138BCA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		7ABE6E111D857FBF00138BCA /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7AC2C0671D97F83000410ADD /* Sparty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sparty.entitlements; sourceTree = SOURCE_ROOT; };
 		7ACAB3071D80BB9B000E2C9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -155,6 +161,10 @@
 		7AEB80881D5E6ECF00725205 /* EditTagsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTagsTVC.swift; sourceTree = "<group>"; };
 		7AEB808A1D5E7B4500725205 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
 		7AED75AA1D60F13A00DA505A /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		7AF17D3D1DA52E680068BB1D /* Array+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
+		7AF3B8861DA7C40C00DCEC77 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		7AF3B8881DA7CEF200DCEC77 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		7AF3B88B1DAA7E2C00DCEC77 /* Friendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendable.swift; sourceTree = "<group>"; };
 		811B5F4D074FDF55E52E20CB /* Pods_Sparty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41779E1B0BBCA80062B8671 /* Pods-Sparty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sparty/Pods-Sparty.debug.xcconfig"; sourceTree = "<group>"; };
 		EFE8BE936F26F87A29813E72 /* Pods-Sparty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sparty/Pods-Sparty.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,12 +193,13 @@
 			name = "View Models";
 			sourceTree = "<group>";
 		};
-		7A3FAF0D1D86D502000CF696 /* Services */ = {
+		7A3FAF0D1D86D502000CF696 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				7AF3B8861DA7C40C00DCEC77 /* FileManager.swift */,
 				7ABE6E0B1D85776300138BCA /* FirebaseManager.swift */,
 			);
-			name = Services;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		7A6059701D5F9BF30054C186 /* Extensions */ = {
@@ -205,6 +216,8 @@
 				7ACE52A81D817F69006EAF9D /* UIStoryboard+Additions.swift */,
 				7A3746E21D82E4FB0040AEA8 /* UIViewController+Additions.swift */,
 				7A8838E81D8D723D00A093C3 /* UIImage+Additions.swift */,
+				7A8E39261DA3CBC500A8B1F3 /* UIButton+Additions.swift */,
+				7AF17D3D1DA52E680068BB1D /* Array+Additions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +255,7 @@
 				7A60597F1D5FB9130054C186 /* Sparty.swift */,
 				7A9A21B31D69D01B00FF71D3 /* Tag.swift */,
 				7A6059661D5F3D450054C186 /* User.swift */,
+				7AF3B8881DA7CEF200DCEC77 /* Request.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -260,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				7A7EC9131D5FEDB600195D2C /* DataStore.swift */,
-				7ABE6E0D1D857BD400138BCA /* AppState.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,6 +322,7 @@
 				7A4C881A1D6C73EA004A757B /* Locator.swift */,
 				7A17DFE21D8821D300EB9EAF /* Notifications.swift */,
 				7A44A1BC1D940FB40038A46E /* StoryboardIDs.swift */,
+				7AB905591DAD05CD000A13BB /* Node.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -344,6 +358,7 @@
 		7ABBD19B1D501A97005356F8 /* Sparty */ = {
 			isa = PBXGroup;
 			children = (
+				7AF3B88A1DAA776400DCEC77 /* Protocols */,
 				7AC2C0671D97F83000410ADD /* Sparty.entitlements */,
 				7A60597C1D5FA7220054C186 /* Cells */,
 				7A6059731D5F9C1C0054C186 /* Classes */,
@@ -352,7 +367,7 @@
 				7A7EC9171D5FFBA600195D2C /* Helpers */,
 				7A6059751D5F9C420054C186 /* Model */,
 				7A6059711D5F9BFD0054C186 /* Resources */,
-				7A3FAF0D1D86D502000CF696 /* Services */,
+				7A3FAF0D1D86D502000CF696 /* Managers */,
 				7A6059741D5F9C330054C186 /* Shared Files */,
 				7A6059721D5F9C0C0054C186 /* Storyboards */,
 				7A6059761D5F9C4E0054C186 /* View Controllers */,
@@ -373,6 +388,14 @@
 				7A7EC91A1D60847400195D2C /* Guests.plist */,
 			);
 			name = "Mock Data";
+			sourceTree = "<group>";
+		};
+		7AF3B88A1DAA776400DCEC77 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7AF3B88B1DAA7E2C00DCEC77 /* Friendable.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D75025D3A0E59D2E24D80EDC /* Pods */ = {
@@ -531,13 +554,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB6B4D41D52A4D0006E79A6 /* UIColor+Additions.swift in Sources */,
+				7AF3B88C1DAA7E2C00DCEC77 /* Friendable.swift in Sources */,
 				7A5ECDC81D746B6100275E64 /* NewSpartyVM.swift in Sources */,
 				7A7F6E561D68CD91000897EC /* FriendsTVC.swift in Sources */,
 				7ABE6E121D857FBF00138BCA /* TabBarController.swift in Sources */,
+				7AF3B8871DA7C40C00DCEC77 /* FileManager.swift in Sources */,
 				7A60597E1D5FA7380054C186 /* ActivityCell.swift in Sources */,
 				7A2BD6C21D5673BE00BC58EC /* FriendVC.swift in Sources */,
 				7A086E951D5679D6006A1168 /* SpartiesTVC.swift in Sources */,
-				7ABE6E0E1D857BD400138BCA /* AppState.swift in Sources */,
 				7ACE52A91D817F69006EAF9D /* UIStoryboard+Additions.swift in Sources */,
 				7A3746E31D82E4FB0040AEA8 /* UIViewController+Additions.swift in Sources */,
 				7A7F6E281D648553000897EC /* UITableViewController+HeaderView.swift in Sources */,
@@ -575,6 +599,8 @@
 				7AEB808B1D5E7B4500725205 /* CheckInVC.swift in Sources */,
 				7A7F6E3E1D649101000897EC /* MKMapItem+Additions.swift in Sources */,
 				7ACE52A51D817BFA006EAF9D /* NSDate+Additions.swift in Sources */,
+				7AB9055A1DAD05CD000A13BB /* Node.swift in Sources */,
+				7AF17D3E1DA52E680068BB1D /* Array+Additions.swift in Sources */,
 				7AED75AB1D60F13A00DA505A /* MenuItem.swift in Sources */,
 				7A17DFE31D8821D300EB9EAF /* Notifications.swift in Sources */,
 				7A0C26DE1D7CEFD7000FC768 /* NewSpartyTVC.swift in Sources */,
@@ -586,7 +612,9 @@
 				7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */,
 				7A7F6E4A1D65DDCB000897EC /* Action.swift in Sources */,
 				7AD422A51D62B35C00988DC5 /* CustomPresentAnimationController.swift in Sources */,
+				7A8E39271DA3CBC500A8B1F3 /* UIButton+Additions.swift in Sources */,
 				7ACBAFB71D82DDBB00B33389 /* SettingsTVC.swift in Sources */,
+				7AF3B8891DA7CEF200DCEC77 /* Request.swift in Sources */,
 				7A9A21B41D69D01B00FF71D3 /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

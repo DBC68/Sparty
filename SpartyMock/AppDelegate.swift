@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Authenticated user with uid: \(user.uid)")
             
             //If authenticated, check if registered
-            FirbaseManager.isRegistered(user.uid, completion: { (result) in
+            FirebaseManager.isRegistered(user.uid, completion: { (result) in
 
                 NSUserDefaults.setIsRegistered(result)
                 

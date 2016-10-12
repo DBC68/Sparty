@@ -4,6 +4,8 @@ import Foundation
 
 extension NSDate {
     
+    
+    
     func stringify() -> String {
         
         guard self.timeIntervalSinceNow < 0 else {
@@ -62,9 +64,9 @@ extension NSDate {
         return dateFormatter.stringFromDate(self)
     }
     
-    func serverString() -> String {
+    func serverString(format: String) -> String {
         let dateformatter = NSDateFormatter()
-        dateformatter.dateFormat = "MM/dd/yy h:mm a"
+        dateformatter.dateFormat = format
         return dateformatter.stringFromDate(self)
     }
     

@@ -12,4 +12,5 @@ struct Notifications {
     
     static let ShowLogin = "ShowLoginNotification"
     static let ShowRegistration = "ShowRegistrationNotification"
+    static let InvitesUpdated = "InvitesUpdated"
 }

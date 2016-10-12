@@ -67,30 +67,36 @@ class ProfileVM {
             self.photo = user.photo
         }
         
-        //Observe changes in user info
-        if let user = FirbaseManager.user {
-        
-            FirbaseManager.observeUser(user.uid) { (result) in
+    }
+    
+    func observeUser(uid:String) {
+        let path = FirebaseManager.ref.child(Node.Users).child(uid)
+        path.observeEventType(.Value, withBlock: { (snapshot) in
+            
+            guard snapshot.exists() else { return }
+            
+            if let dict = snapshot.value as? [String:AnyObject],
+                let user = User(dict: dict) {
                 
-                guard result != nil else {return}
+                self.screenName = user.screenName
                 
-                self.screenName = result?.screenName
-                
-                if let motto = result?.motto {
+                if let motto = user.motto {
                     self.motto = motto
                 }
                 
-                self.score = result?.score
+                self.score = user.score
                 
                 
-                if let photo = result?.photo {
+                if let photo = user.photo {
                     self.photo = photo
                 }
                 
-                if let fullName = result?.fullName {
+                if let fullName = user.fullName {
                     self.fullName = fullName
                 }
             }
-        }
+            
+        })
+
     }
 }

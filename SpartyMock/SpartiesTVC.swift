@@ -50,27 +50,11 @@ class SpartiesTVC: UITableViewController, MenuItemsDelegate, UIViewControllerTra
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !self.scrolled {
-            self.scrollToLastRow()
-            self.scrolled = true
-        }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0),
-                                              atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
-    }
-
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
 //        cancelSearchBar()
-    }
-    
-    func scrollToLastRow() {
-        let indexPath = NSIndexPath(forRow: 3, inSection: 1)
-        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
     }
     
     private func loadSparties() {

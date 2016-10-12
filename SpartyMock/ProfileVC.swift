@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
+    var _vm: ProfileVM!
+    
     @IBOutlet weak var creditLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var rankingLabel: UILabel!
@@ -21,6 +23,14 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let _ = ProfileVM(controller: self)
+        _vm = ProfileVM(controller: self)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let user = FirebaseManager.user {
+            _vm.observeUser(user.uid)
+        }
     }
 }

@@ -48,7 +48,7 @@ class User: NSObject {
     init?(dict:[String:AnyObject]) {
         
         guard let screenName = dict[FBKey.ScreenName] as? String,
-//            email = dict["email"] as? String,
+            let email = dict[FBKey.Motto] as? String,
             let motto = dict[FBKey.Motto] as? String,
             let fullName = dict[FBKey.FullName] as? String,
             let score = dict[FBKey.Score] as? Int
@@ -60,7 +60,7 @@ class User: NSObject {
         }
         
         self.screenName = screenName
-//        self.email = email
+        self.email = email
         self.motto = motto
         self.fullName = fullName
         self.score = score
@@ -71,6 +71,7 @@ class User: NSObject {
         }
     }
     
+    //Dictionary for saving
     func dict() -> [String:AnyObject] {
         
         var dict = [String:AnyObject]()
@@ -78,18 +79,16 @@ class User: NSObject {
         dict[FBKey.ScreenName] = self.screenName
         dict[FBKey.FullName] = self.fullName
         dict[FBKey.Email] = self.email
+        dict[FBKey.Score] = self.score
         
         if let motto = self.motto {
             dict[FBKey.Motto] = motto
         }
         
         if let image = self.photo,
-            let str = UIImage.imageToString(image.resize(200.0)) {
+            let str = UIImage.imageToString(image.resize(Constants.PhotoSize)) {
                 dict[FBKey.PhotoString] = str
-            
         }
-        
-        dict[FBKey.Score] = self.score
         
         return dict
     }
@@ -120,13 +119,13 @@ class User: NSObject {
         return self.index(array) != nil
     }
     
-    /*
+    
     //MARK: - Coder
     //---------------------------------------------------------------------------
     
     struct CodingKey {
         static let UID = "uid"
-        static let FirstName = "first"
+        static let FullName = "fullName"
         static let LastName = "last"
         static let ScreenName = "screenName"
         static let Email = "email"
@@ -137,8 +136,7 @@ class User: NSObject {
     
     func encodeWithCoder(archiver: NSCoder) {
         archiver.encodeObject(self.uid, forKey: CodingKey.UID)
-        archiver.encodeObject(self.firstName, forKey: CodingKey.FirstName)
-        archiver.encodeObject(self.lastName, forKey: CodingKey.LastName)
+        archiver.encodeObject(self.fullName, forKey: CodingKey.FullName)
         archiver.encodeObject(self.screenName, forKey: CodingKey.ScreenName)
         archiver.encodeObject(self.email, forKey: CodingKey.Email)
         archiver.encodeObject(self.motto, forKey: CodingKey.Motto)
@@ -151,8 +149,7 @@ class User: NSObject {
         super.init()
         
         self.uid = unarchiver.decodeObjectForKey(CodingKey.UID) as! String
-        self.firstName = unarchiver.decodeObjectForKey(CodingKey.FirstName) as! String
-        self.lastName = unarchiver.decodeObjectForKey(CodingKey.LastName) as! String
+        self.fullName = unarchiver.decodeObjectForKey(CodingKey.FullName) as! String
         self.screenName = unarchiver.decodeObjectForKey(CodingKey.ScreenName) as! String
         self.email = unarchiver.decodeObjectForKey(CodingKey.Email) as! String
         self.motto = unarchiver.decodeObjectForKey(CodingKey.Motto) as? String
@@ -164,15 +161,11 @@ class User: NSObject {
         }
         
     }
-*/
+
 }
 
 
 extension User {
-    
-//    var fullName: String {
-//        return "\(self.firstName) \(self.lastName)"
-//    }
     
     var credits: Int {
         return Int(Double(score) * Constants.creditPercent)

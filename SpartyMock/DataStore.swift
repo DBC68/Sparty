@@ -32,7 +32,6 @@ class DataStore {
     var guests = [Guest]()
     var tags = [Tag]()
     var menuItems: [MenuItem]!
-//    var viewMode:ViewMode = .Map
     var defaultCoordinate:CLLocationCoordinate2D?
     var units: Units = Units.Imperial
     
@@ -42,25 +41,11 @@ class DataStore {
     }
     
     init() {
-        if let user = FirbaseManager.user {
-            FirbaseManager.loadUser(user.uid) { (result) in
+        if let user = FirebaseManager.user {
+            FirebaseManager.loadUser(user.uid) { (result) in
                 self.user = result
             }
         }
-    }
-
-    
-    
-    func loadMockData() {
-//        loadUsers()
-//        loadFriends()
-//        loadActions()
-//        loadActivities()
-//        loadSparties()
-//        loadGuests()
-//        loadMenuItems()
-//        
-//        self.user = userForUserId("man0")
     }
     
     //MARK: - Users
@@ -90,27 +75,6 @@ class DataStore {
             }
         }
         return nil
-    }
-
-    
-    //MARK: - Friends
-    //--------------------------------------------------------------------------
-    private func loadFriends() {
-        
-        self.friends.removeAll()
-        
-        if let path = NSBundle.mainBundle().pathForResource(PlistNames.Friends, ofType: "plist"),
-            array = NSArray(contentsOfFile: path) as? [[String:AnyObject]] {
-            
-            for dict in array {
-                
-                let friend = Friend(dict: dict)
-                self.friends.append(friend)
-            }
-        } else {
-            abort()
-        }
-        
     }
     
     

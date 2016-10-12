@@ -32,9 +32,15 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        vm = RegisterVM(controller: self)
+        setupUI()
+        
+    }
+    
+    private func setupUI() {
+        
         navigationController?.lightNavBar()
         screenNameField.becomeFirstResponder()
-        vm = RegisterVM(controller: self)
         doneButton.enabled = false
         
         cameraView.tintColor = UIColor.lightGrayColor()
@@ -42,11 +48,6 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
         photoView.layer.borderColor = UIColor.imageBorderColor().CGColor
         photoView.layer.borderWidth = Constants.ImageBorderWidth
         removePhoto()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     //MARK: - Actions
@@ -65,7 +66,7 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
             return
         }
         
-        FirbaseManager.isUniqueScreenName(vm.username) {
+        FirebaseManager.isUniqueScreenName(vm.username) {
             
             result in
             
@@ -73,19 +74,11 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
                 
                 if result == true {
                     
-                    let user = self.vm.createUser()
+                    let user = self.vm.createNewUser()
                     
-                    FirbaseManager.saveUsername(user.screenName)
-                    
-                    FirbaseManager.saveEmail(user.email)
-                    
-                    FirbaseManager.saveUserInfo(user.dict())
-                    
-                    NSUserDefaults.setIsRegistered(true)
+                    FileManager.saveNewUser(user)
                     
                     self.performSegueWithIdentifier(Segue.UnwindToActivities, sender: self)
-                    
-//                    self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                     self.showMessagePrompt("The screenName \(self.vm.username) is already taken.  Please try again.")
                 }
@@ -187,7 +180,7 @@ class RegisterTVC: UITableViewController, UITextFieldDelegate, UIImagePickerCont
         if textField == screenNameField {
             //Check to see if unique
             if vm.isValidUsername {
-                FirbaseManager.isUniqueScreenName(vm.username, completion: { (result) in
+                FirebaseManager.isUniqueScreenName(vm.username, completion: { (result) in
                     self.vm.isUniqueScreenName = result
                     print(self.vm.username + " is unique: \(result)")
                 })

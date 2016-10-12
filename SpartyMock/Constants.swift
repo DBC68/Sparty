@@ -20,4 +20,9 @@ class Constants {
     static let ImageBorderRadius:CGFloat = 5.0
     static let ImageBorderWidth:CGFloat = 1.0
     
+    static let MinSearchCharacters = 3
+    
+    static let PhotoSize: CGFloat = 200.0
+    
+    static let ServerStringFormat = "MM/dd/yy h:mm a"
 }

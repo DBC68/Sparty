@@ -26,8 +26,15 @@ class FriendRequestVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
 
         self.navigationController?.lightNavBar()
-        
         self.tableView.tableFooterView = UIView()
+        self.searchButton.state(false)
+        self.searchButton.backgroundColor = UIColor.primaryColor()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.screenNameField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,35 +59,24 @@ class FriendRequestVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell?.user = self.tableData[indexPath.row]
         
         return cell!
-        
     }
 
     
     //MARK: - Actions
     //--------------------------------------------------------------------------
     @IBAction func textDidChange(sender: UITextField) {
-        self.searchButton.enabled = sender.text?.characters.count > 3
+        self.searchButton.state(sender.text?.characters.count >= Constants.MinSearchCharacters)
     }
     
     @IBAction func doneAction(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     @IBAction func searchAction(sender: AnyObject) {
-        
         if let seachString = self.screenNameField.text {
-            FirbaseManager.search(forUsername: seachString, completion: { (found) in
-                
-                guard let uid = found else {
-                    self.tableData = [User]()
-                    return
-                }
-                
-                FirbaseManager.loadUser(uid, completion: { (user) in
-                    self.tableData.append(user!)
-                    self.tableView.reloadData()
-                })
-
+            FirebaseManager.search(forScreenName: seachString, completion: { (foundUsers) in
+                self.tableData = foundUsers
+                self.tableView.reloadData()
             })
         }
     }

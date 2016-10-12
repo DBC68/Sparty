@@ -13,8 +13,6 @@ import GoogleSignIn
 
 class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
-    
-    
     //MARK: - Outlets
     //--------------------------------------------------------------------------
     @IBOutlet weak var signInButton: GIDSignInButton!
@@ -24,27 +22,30 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     //--------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        
-        self.signInButton.colorScheme = .Dark
-        
-        self.signInButton.hidden = false
+        setupGoogle()
+        setupButton()
         self.indicator.stopAnimating()
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         
+        //Hide button and start indicater when screen transistions to Google authentication
         self.signInButton.hidden = true
         self.indicator.startAnimating()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //MARK: - Setup
+    //--------------------------------------------------------------------------
+    private func setupGoogle() {
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+    }
+    
+    private func setupButton() {
+        self.signInButton.hidden = false
+        self.signInButton.colorScheme = .Dark
     }
     
     //MARK - Google
@@ -56,9 +57,12 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
             return
         }
         
-        FirbaseManager.signInGoogle(user) { (result) in
+        //Sign in using Google API
+        FirebaseManager.signInGoogle(user) { (result) in
             switch result {
             case .Success(let user):
+                
+                //If successful, check if user exists in Firebase
                 self.checkIfUserIsRegistered(user)
             case .Failure(let error):
                 print(error)
@@ -69,16 +73,19 @@ class GoogleSignInVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     }
     
     func checkIfUserIsRegistered(user: FIRUser) {
-        FirbaseManager.isRegistered(user.uid, completion: { (result) in
+        
+        //Check if user exists in Firebase
+        FirebaseManager.isRegistered(user.uid, completion: { (result) in
             
             dispatch_async(dispatch_get_main_queue(),{
                 
-                //If is registered, dismiss login else show register screen
+                //If user is registered, dismiss
                 if result == true {
                     print("User exists")
                     NSUserDefaults.setIsRegistered(true)
                     self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
+                    //If user is not registered, show registration screen
                     print("User does not exist")
                     if let nav = UIStoryboard.loadNavFromStoryboard(StoryboardIDs.RegisterNav) {
                         nav.modalTransitionStyle = .CrossDissolve

@@ -31,13 +31,9 @@ enum Result<T> {
 }
 
 
-class FirbaseManager: NSObject {
+class FirebaseManager: NSObject {
     
-    struct Node {
-        static let Users = "users"
-        static let Usernames = "usernames"
-        static let Emails = "emails"
-    }
+    static let shared = FirebaseManager()
     
     struct Key {
         static let Username = "username"
@@ -46,10 +42,12 @@ class FirbaseManager: NSObject {
 
     static var ref = FIRDatabase.database().reference()
     
-    static var user = FIRAuth.auth()?.currentUser
+    static var user: FIRUser? {
+        return FIRAuth.auth()?.currentUser
+    }
     
     
-    //Username
+    //MARK: - Username
     //--------------------------------------------------------------------------
     static func saveUsername(userName:String) {
         let path = self.ref.child(Node.Usernames).child(userName.toBase64())
@@ -65,27 +63,38 @@ class FirbaseManager: NSObject {
         }
     }
     
-    static func search(forUsername username:String, completion: (found:String?) -> Void) {
-        let path = self.ref.child(Node.Usernames).child(username.toBase64())
-        path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            
+    static func search(forScreenName screenName:String, completion: (foundUsers:[User]) -> Void) {
+        //Get all users and screen for screenName
+        //Will need to be refactored later to accomondate lots of users
+        self.ref.child(Node.Users).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             if snapshot.exists() {
-                completion(found: snapshot.value as? String)
+                let value = snapshot.value as! [String:AnyObject]
+                var users = [User]()
+                for (key, dict) in value {
+                    if let user = User(dict: dict as! [String:AnyObject]) {
+                        user.uid = key
+                        users.append(user)
+                    }
+                }
+                let found = users.filter{$0.screenName.containsString(screenName)}
+                //Exclude current user from results
+                let notMe = found.filter{$0.screenName != DataStore.sharedInstance.user!.screenName}
+                completion(foundUsers:notMe)
             }
-            
         }) { (error) in
             print(error.localizedDescription)
         }
     }
+
     
-    //Email
+    //MARK: - Email
     //--------------------------------------------------------------------------
     static func saveEmail(email:String) {
         let path = self.ref.child(Node.Emails).child(email.toBase64())
         path.setValue(self.user!.uid)
     }
     
-    //User
+    //MARK: - User
     //--------------------------------------------------------------------------
     static func saveUserInfo(dict: [String:AnyObject]) {
         let path = self.ref.child(Node.Users).child(self.user!.uid)
@@ -111,26 +120,6 @@ class FirbaseManager: NSObject {
         }
     }
     
-    static func observeUser(uid:String, completion:(result:User?) -> Void) {
-        let path = self.ref.child(Node.Users).child(uid)
-        path.observeEventType(.Value, withBlock: { (snapshot) in
-            
-            guard snapshot.exists() else {
-                completion(result: nil)
-                return
-            }
-            
-            if let dict = snapshot.value as? [String:AnyObject],
-                let user = User(dict: dict) {
-                completion(result: user)
-            }
-            
-        }) { (error) in
-            completion(result: nil)
-            print(error.localizedDescription)
-        }
-    }
-    
     static func loadUser(uid:String, completion:(result:User?) -> Void) {
         let path = self.ref.child(Node.Users).child(uid)
         path.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
@@ -151,6 +140,29 @@ class FirbaseManager: NSObject {
         }
     }
     
+    static func user(forUserID uid:String, completion:(User) -> Void) {
+        
+        let path = FirebaseManager.ref.child(Node.Users).child(uid)
+        
+        path.observeEventType(.Value, withBlock: { snapshot in
+            
+            if let value = snapshot.value as? [String:AnyObject],
+                let user = User(dict: value) {
+                completion(user)
+            }
+        })
+    }
+    
+    //MARK: - Friend Request
+    //--------------------------------------------------------------------------
+    static func saveFriendRequest(user: User) {
+        let request = Request(fromUserId: FirebaseManager.user!.uid, toUserId: user.uid)
+        let path = self.ref.child(Node.Requests).child(request.toUserId).child(request.fromUserId)
+        path.setValue(request.status.rawValue)
+    }
+    
+    //MARK: - Sign In
+    //--------------------------------------------------------------------------
     static func signInGoogle(user:GIDGoogleUser, completion:(Result<FIRUser>) -> Void) {
         
         let authentication = user.authentication
@@ -166,6 +178,8 @@ class FirbaseManager: NSObject {
         }
     }
     
+    //MARK: - Sign Out
+    //--------------------------------------------------------------------------
     static func logOut() {
         
         self.ref.removeAllObservers()

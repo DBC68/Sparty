@@ -8,19 +8,12 @@
 
 import UIKit
 
-protocol FriendRequestCellDelegate: class {
-    
-    func addFriendRequest(friend: User)
-}
-
 class FriendRequestCell: UITableViewCell {
-    
-    weak var delegate: FriendRequestCellDelegate?
     
     var user: User! {
         didSet {
             self.usernameLabel.text = user.screenName
-            self.photoView.image = user.photo
+            self.photoView.image = user.photo ?? UIImage(named: "user")
         }
     }
 
@@ -29,8 +22,8 @@ class FriendRequestCell: UITableViewCell {
     @IBOutlet weak var addButton: UIButton!
     
     @IBAction func addAction(sender: AnyObject) {
-        
-        self.delegate?.addFriendRequest(self.user)
+    
         self.addButton.enabled = false
+        FirebaseManager.saveFriendRequest(user)
     }
 }

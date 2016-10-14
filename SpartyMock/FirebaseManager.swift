@@ -161,6 +161,10 @@ class FirebaseManager: NSObject {
         path.setValue(request.status.rawValue)
     }
     
+    static func acceptFriendRequest() {
+        
+    }
+    
     //MARK: - Sign In
     //--------------------------------------------------------------------------
     static func signInGoogle(user:GIDGoogleUser, completion:(Result<FIRUser>) -> Void) {

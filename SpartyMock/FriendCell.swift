@@ -19,13 +19,14 @@ class FriendCell: UITableViewCell {
     
     //MARK: - Setup
     //--------------------------------------------------------------------------
-    func configure(uid: String) {
+    func configure(item: Friendable) {
         
-        FirebaseManager.user(forUserID: uid) { user in
+        FirebaseManager.user(forUserID: item.uid) { user in
     
             dispatch_async(dispatch_get_main_queue(),{
                 self.nameLabel.text = user.fullName
-                self.photoView.image = user.photo
+                
+                self.photoView.image = user.photo ?? UIImage(named: "user")
                 
                 let pointString = user.pointsString + " points"
                 self.pointsLabel.text = pointString
@@ -33,10 +34,5 @@ class FriendCell: UITableViewCell {
         }
 
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.accessoryType = .DisclosureIndicator
-    }
+    
 }

@@ -13,18 +13,18 @@ class FriendsTVC: UITableViewController {
     
     //MARK: - Properties
     //--------------------------------------------------------------------------
-    var _tableData: [[String]]!
-    var _titles = ["Invites", "Friends"]
+    var _tableData: [[Friendable]]!
+    var _titles = ["Friend Requests", "Friends"]
     var _selectedFriend: Friend!
-    var _invites = [String]()
-    var _friends = [String]()
+    var _requests = [Friendable]()
+    var _friends = [Friendable]()
     
     //MARK: - View LifeCycle
     //--------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _tableData = [_invites, _friends]
+        _tableData = [_requests, _friends]
         
         setupUI()
         
@@ -53,34 +53,55 @@ class FriendsTVC: UITableViewController {
     }
     
 
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return _tableData[section].count > 0 ? 30 : 0
-    }
-    
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1
-    }
+//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        
+//        return _tableData[section].count > 0 ? 30 : 0
+//    }
+//    
+//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 0.1
+//    }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         return _tableData[section].count > 0 ? _titles[section] : nil
     }
     
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        
-        return nil
+//    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//        
+//        return nil
+//    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // you need to implement this method too or you can't swipe to display the actions
     }
     
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let accept = UITableViewRowAction(style: .Normal, title: "Accept") { action, index in
+            print("accept button tapped")
+        }
+        accept.backgroundColor = UIColor.darkGrayColor()
+        
+        let reject = UITableViewRowAction(style: .Normal, title: "Reject") { action, index in
+            print("reject button tapped")
+        }
+        reject.backgroundColor = UIColor.lightGrayColor()
+        
+        return [reject, accept]
+    }
+    
+//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        // the cells you would like the actions to appear needs to be editable
+//        return true
 //    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? FriendCell
 
-        cell?.configure(_tableData[indexPath.section][indexPath.row])
+        let item = _tableData[indexPath.section][indexPath.row]
+        
+        cell?.configure(item)
         
         return cell!
     
@@ -139,9 +160,11 @@ class FriendsTVC: UITableViewController {
             
             if let child = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in child {
-                    self._invites.insert(snap.key, atIndex: 0)
+                    
+                    let request = Request(fromUserId: snap.key, toUserId: FirebaseManager.user!.uid)
+                    self._requests.insert(request, atIndex: 0)
                 }
-                self._tableData[0] = self._invites
+                self._tableData[0] = self._requests
                 self.tableView.reloadData()
             }
         })

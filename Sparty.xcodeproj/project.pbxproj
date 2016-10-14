@@ -55,6 +55,7 @@
 		7A93C3841D62BB1D007F4BF5 /* UITextView+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */; };
 		7A940AF21D57CA37004A65D3 /* InviteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A940AF11D57CA37004A65D3 /* InviteTVC.swift */; };
 		7A9A21B41D69D01B00FF71D3 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A21B31D69D01B00FF71D3 /* Tag.swift */; };
+		7AA494B61DB0FEB20058CEA7 /* Friendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA494B51DB0FEB20058CEA7 /* Friendable.swift */; };
 		7AB6B4D21D52A4B9006E79A6 /* ActivityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB6B4D11D52A4B9006E79A6 /* ActivityTVC.swift */; };
 		7AB6B4D41D52A4D0006E79A6 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB6B4D31D52A4D0006E79A6 /* UIColor+Additions.swift */; };
 		7AB8C3C41D68DE8C0013255F /* Friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB8C3C31D68DE8C0013255F /* Friends.plist */; };
@@ -81,7 +82,6 @@
 		7AF17D3E1DA52E680068BB1D /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF17D3D1DA52E680068BB1D /* Array+Additions.swift */; };
 		7AF3B8871DA7C40C00DCEC77 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF3B8861DA7C40C00DCEC77 /* FileManager.swift */; };
 		7AF3B8891DA7CEF200DCEC77 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF3B8881DA7CEF200DCEC77 /* Request.swift */; };
-		7AF3B88C1DAA7E2C00DCEC77 /* Friendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF3B88B1DAA7E2C00DCEC77 /* Friendable.swift */; };
 		9D83213538137002E66F6BAF /* Pods_Sparty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811B5F4D074FDF55E52E20CB /* Pods_Sparty.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +134,7 @@
 		7A93C3831D62BB1D007F4BF5 /* UITextView+Placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Placeholder.swift"; sourceTree = "<group>"; };
 		7A940AF11D57CA37004A65D3 /* InviteTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteTVC.swift; sourceTree = "<group>"; };
 		7A9A21B31D69D01B00FF71D3 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		7AA494B51DB0FEB20058CEA7 /* Friendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendable.swift; sourceTree = "<group>"; };
 		7AB6B4D11D52A4B9006E79A6 /* ActivityTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTVC.swift; sourceTree = "<group>"; };
 		7AB6B4D31D52A4D0006E79A6 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		7AB8C3C31D68DE8C0013255F /* Friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Friends.plist; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		7AF17D3D1DA52E680068BB1D /* Array+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
 		7AF3B8861DA7C40C00DCEC77 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		7AF3B8881DA7CEF200DCEC77 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		7AF3B88B1DAA7E2C00DCEC77 /* Friendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendable.swift; sourceTree = "<group>"; };
 		811B5F4D074FDF55E52E20CB /* Pods_Sparty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sparty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41779E1B0BBCA80062B8671 /* Pods-Sparty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sparty/Pods-Sparty.debug.xcconfig"; sourceTree = "<group>"; };
 		EFE8BE936F26F87A29813E72 /* Pods-Sparty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sparty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sparty/Pods-Sparty.release.xcconfig"; sourceTree = "<group>"; };
@@ -337,6 +337,14 @@
 			name = "Header View";
 			sourceTree = "<group>";
 		};
+		7AA494AF1DB0FA520058CEA7 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7AA494B51DB0FEB20058CEA7 /* Friendable.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		7ABBD1901D501A97005356F8 = {
 			isa = PBXGroup;
 			children = (
@@ -358,7 +366,6 @@
 		7ABBD19B1D501A97005356F8 /* Sparty */ = {
 			isa = PBXGroup;
 			children = (
-				7AF3B88A1DAA776400DCEC77 /* Protocols */,
 				7AC2C0671D97F83000410ADD /* Sparty.entitlements */,
 				7A60597C1D5FA7220054C186 /* Cells */,
 				7A6059731D5F9C1C0054C186 /* Classes */,
@@ -368,6 +375,7 @@
 				7A6059751D5F9C420054C186 /* Model */,
 				7A6059711D5F9BFD0054C186 /* Resources */,
 				7A3FAF0D1D86D502000CF696 /* Managers */,
+				7AA494AF1DB0FA520058CEA7 /* Protocol */,
 				7A6059741D5F9C330054C186 /* Shared Files */,
 				7A6059721D5F9C0C0054C186 /* Storyboards */,
 				7A6059761D5F9C4E0054C186 /* View Controllers */,
@@ -388,14 +396,6 @@
 				7A7EC91A1D60847400195D2C /* Guests.plist */,
 			);
 			name = "Mock Data";
-			sourceTree = "<group>";
-		};
-		7AF3B88A1DAA776400DCEC77 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				7AF3B88B1DAA7E2C00DCEC77 /* Friendable.swift */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D75025D3A0E59D2E24D80EDC /* Pods */ = {
@@ -554,7 +554,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB6B4D41D52A4D0006E79A6 /* UIColor+Additions.swift in Sources */,
-				7AF3B88C1DAA7E2C00DCEC77 /* Friendable.swift in Sources */,
 				7A5ECDC81D746B6100275E64 /* NewSpartyVM.swift in Sources */,
 				7A7F6E561D68CD91000897EC /* FriendsTVC.swift in Sources */,
 				7ABE6E121D857FBF00138BCA /* TabBarController.swift in Sources */,
@@ -612,6 +611,7 @@
 				7A8838EB1D8EAE4400A093C3 /* ProfileVM.swift in Sources */,
 				7A7F6E4A1D65DDCB000897EC /* Action.swift in Sources */,
 				7AD422A51D62B35C00988DC5 /* CustomPresentAnimationController.swift in Sources */,
+				7AA494B61DB0FEB20058CEA7 /* Friendable.swift in Sources */,
 				7A8E39271DA3CBC500A8B1F3 /* UIButton+Additions.swift in Sources */,
 				7ACBAFB71D82DDBB00B33389 /* SettingsTVC.swift in Sources */,
 				7AF3B8891DA7CEF200DCEC77 /* Request.swift in Sources */,

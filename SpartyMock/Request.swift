@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Request: Friendable {
+class Request {
     
     struct FBKey {
         static let toUserId = "toUserId"
@@ -28,10 +28,22 @@ class Request: Friendable {
     var status:Status
     var date: NSDate
     
+    
+    
     init(fromUserId: String, toUserId: String) {
         self.fromUserId = fromUserId
         self.toUserId = toUserId
         self.date = NSDate()
         self.status = .Pending
+    }
+}
+
+extension Request: Friendable {
+    var uid: String {
+        return toUserId
+    }
+    
+    var type: FriendType {
+        return .Request
     }
 }

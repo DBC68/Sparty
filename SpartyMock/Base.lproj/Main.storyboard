@@ -340,16 +340,16 @@
         <scene sceneID="4d1-Ap-KSD">
             <objects>
                 <tableViewController id="gX4-BU-F0S" customClass="FriendsTVC" customModule="Sparty" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QxS-mM-mjT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="QxS-mM-mjT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="67" id="h8g-Gs-wrE" customClass="FriendCell" customModule="Sparty" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="67"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="67" id="h8g-Gs-wrE" customClass="FriendCell" customModule="Sparty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="120" width="375" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h8g-Gs-wrE" id="u45-4N-Qhb">
-                                    <frame key="frameInset" width="375" height="66"/>
+                                    <frame key="frameInset" width="342" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="zO4-ai-KZf">
@@ -359,27 +359,31 @@
                                                 <constraint firstAttribute="height" constant="50" id="Npc-Q4-T6k"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;name&gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-zs-3Ku">
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;points&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-dP-Rde">
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6wp-0l-lJB">
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&lt;name&gt;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-zs-3Ku">
+                                                    <frame key="frameInset" width="253" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&lt;points&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXc-dP-Rde">
+                                                    <frame key="frameInset" minY="21" width="253" height="15"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="CXc-dP-Rde" firstAttribute="leading" secondItem="zO4-ai-KZf" secondAttribute="trailing" constant="8" id="1lN-Lv-kaI"/>
                                         <constraint firstItem="zO4-ai-KZf" firstAttribute="centerY" secondItem="u45-4N-Qhb" secondAttribute="centerY" id="Fz5-ib-qpO"/>
-                                        <constraint firstItem="CXc-dP-Rde" firstAttribute="top" secondItem="aNa-zs-3Ku" secondAttribute="bottom" constant="5" id="HNs-Qq-xP2"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="aNa-zs-3Ku" secondAttribute="trailing" constant="8" id="ONk-lD-aXL"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="CXc-dP-Rde" secondAttribute="bottom" constant="5" id="Yp0-pX-TTw"/>
+                                        <constraint firstItem="6wp-0l-lJB" firstAttribute="centerY" secondItem="u45-4N-Qhb" secondAttribute="centerY" id="HJS-PE-pNL"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="6wp-0l-lJB" secondAttribute="bottom" constant="8" id="Xk5-Pg-3P4"/>
                                         <constraint firstItem="zO4-ai-KZf" firstAttribute="leading" secondItem="u45-4N-Qhb" secondAttribute="leading" constant="15" id="anc-da-FC2"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="CXc-dP-Rde" secondAttribute="trailing" constant="8" id="df3-vZ-9f4"/>
-                                        <constraint firstItem="aNa-zs-3Ku" firstAttribute="top" secondItem="u45-4N-Qhb" secondAttribute="topMargin" constant="7" id="sQy-k9-ol0"/>
-                                        <constraint firstItem="aNa-zs-3Ku" firstAttribute="leading" secondItem="zO4-ai-KZf" secondAttribute="trailing" constant="8" id="tMa-OQ-tSw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6wp-0l-lJB" secondAttribute="trailing" constant="8" id="cxW-ei-RsS"/>
+                                        <constraint firstItem="6wp-0l-lJB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="u45-4N-Qhb" secondAttribute="topMargin" constant="8" id="k9y-C5-DMX"/>
+                                        <constraint firstItem="6wp-0l-lJB" firstAttribute="leading" secondItem="zO4-ai-KZf" secondAttribute="trailing" constant="8" id="stF-k0-xiX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -410,7 +414,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aln-Lp-2Rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="181"/>
+            <point key="canvasLocation" x="1564" y="180.35982008995504"/>
         </scene>
         <!--Friend-->
         <scene sceneID="S4z-ba-Oun">
@@ -2705,7 +2709,7 @@
         <image name="sparty" width="114" height="114"/>
         <image name="star" width="29" height="29"/>
         <image name="time" width="29" height="29"/>
-        <image name="user" width="29" height="29"/>
+        <image name="user" width="50" height="50"/>
         <image name="users" width="29" height="29"/>
         <image name="waterway" width="200" height="133"/>
         <image name="yes" width="32" height="32"/>

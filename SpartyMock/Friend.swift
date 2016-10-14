@@ -10,9 +10,19 @@ import UIKit
 
 
 
-class Friend: NSObject {
+class Friend {
     
-    var ownerID: String!
-    var friendID: String!
     var isVIP = false
+    var owner: User!
+    var friend: User!
+}
+
+extension Friend: Friendable {
+    var uid: String {
+        return owner.uid
+    }
+    
+    var type: FriendType {
+        return .Friend
+    }
 }
